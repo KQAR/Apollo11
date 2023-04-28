@@ -1,0 +1,23 @@
+## Mac OS
+.DS_Store
+
+## Xcode workspace
+*.xcworkspace
+
+## Build generated
+build/
+DerivedData/
+
+## Other
+*.moved-aside
+*.xcuserstate
+
+## Obj-C/Swift specific
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Swift Package Manager
+# Packages/
+.build/
