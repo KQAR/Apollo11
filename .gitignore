@@ -8,6 +8,9 @@
 build/
 DerivedData/
 
+## User settings
+xcuserdata/
+
 ## Other
 *.moved-aside
 *.xcuserstate
