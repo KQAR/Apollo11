@@ -9,9 +9,9 @@ import SwiftUI
 
 @main
 struct Apollo11App: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+  var body: some Scene {
+    WindowGroup {
+      HomeTabView()
     }
+  }
 }
