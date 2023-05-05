@@ -14,6 +14,8 @@
 		6349147129FBB2BF0036E482 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349147029FBB2BF0036E482 /* HomeTabView.swift */; };
 		6349147329FBB7240036E482 /* SentencePandectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349147229FBB7240036E482 /* SentencePandectView.swift */; };
 		6349147529FBB72D0036E482 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349147429FBB72D0036E482 /* SettingView.swift */; };
+		63CFCD882A04A4F2008C0E2F /* PastedBoardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */; };
+		63CFCD8A2A04A6DA008C0E2F /* SentenceRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD892A04A6DA008C0E2F /* SentenceRow.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		6349147029FBB2BF0036E482 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		6349147229FBB7240036E482 /* SentencePandectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencePandectView.swift; sourceTree = "<group>"; };
 		6349147429FBB72D0036E482 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastedBoardMaster.swift; sourceTree = "<group>"; };
+		63CFCD892A04A6DA008C0E2F /* SentenceRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceRow.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +68,9 @@
 				6349146529FBA30B0036E482 /* Preview Content */,
 				6349147029FBB2BF0036E482 /* HomeTabView.swift */,
 				6349147229FBB7240036E482 /* SentencePandectView.swift */,
+				63CFCD892A04A6DA008C0E2F /* SentenceRow.swift */,
 				6349147429FBB72D0036E482 /* SettingView.swift */,
+				63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */,
 			);
 			path = Apollo11;
 			sourceTree = "<group>";
@@ -156,6 +162,8 @@
 				6349147129FBB2BF0036E482 /* HomeTabView.swift in Sources */,
 				6349147529FBB72D0036E482 /* SettingView.swift in Sources */,
 				6349145F29FBA30A0036E482 /* Apollo11App.swift in Sources */,
+				63CFCD8A2A04A6DA008C0E2F /* SentenceRow.swift in Sources */,
+				63CFCD882A04A4F2008C0E2F /* PastedBoardMaster.swift in Sources */,
 				6349147329FBB7240036E482 /* SentencePandectView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

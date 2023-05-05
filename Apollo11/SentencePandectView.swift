@@ -9,7 +9,14 @@ import SwiftUI
 
 struct SentencePandectView: View {
   var body: some View {
-    Text("SentencepandectView")
+    ScrollView {
+      LazyVStack {
+        ForEach(1...100, id: \.self) { i in
+          SentenceRow()
+        }
+      }
+      .frame(width: .infinity, height: .infinity, alignment: .leading)
+    }
   }
 }
 
