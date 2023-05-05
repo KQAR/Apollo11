@@ -6,13 +6,19 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 struct HomeTabView: View {
   @State private var selection = 0
   var body: some View {
     ZStack {
       TabView(selection: $selection) {
-        SentencePandectView()
+        SentencePandectView(
+          store: Store(
+            initialState: SentencePandect.State(sentences: []),
+            reducer: SentencePandect()
+          )
+        )
           .tag(0)
           .tabItem {
             Text("句子")
