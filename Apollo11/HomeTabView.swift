@@ -15,7 +15,7 @@ struct HomeTabView: View {
       TabView(selection: $selection) {
         SentencePandectView(
           store: Store(
-            initialState: SentencePandect.State(sentences: []),
+            initialState: SentencePandect.State(sentences: sentences),
             reducer: SentencePandect()
           )
         )

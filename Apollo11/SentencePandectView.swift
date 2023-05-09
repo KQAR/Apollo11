@@ -20,18 +20,29 @@ struct SentencePandectView: View {
   
   var body: some View {
     WithViewStore(store) { viewStore in
-      ScrollView {
-        LazyVStack {
-          ForEach(viewStore.sentences, id: \.self) { sentence in
-            SentenceRowView(
-              store: Store(
-                initialState: sentence,
-                reducer: SentenceRow()
-              )
+      NavigationStack(
+        path: viewStore.binding(
+          get: \.path,
+          send: SentencePandect.Action.navigationPathChanged
+        )
+      ) {
+        List(viewStore.sentences) { sentence in
+          NavigationLink(value: SentencePandect.State.Destination.child(sentence)) {
+            SentenceRowView(store: Store(initialState: sentence, reducer: SentenceRow()))
+          }
+        }
+        .navigationDestination(
+          for: SentencePandect.State.Destination.self
+        ) { destination in
+          switch destination {
+          case let .child(sentence):
+            SentenceDetailsView(
+              store: Store(initialState: sentence, reducer: SentenceRow())
             )
           }
         }
-      }.background(Color.cyan)
+        .navigationTitle(viewStore.title)
+      }
     }
   }
 }

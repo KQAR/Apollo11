@@ -16,7 +16,6 @@ struct SentenceRowView: View {
     WithViewStore(store) { viewStore in
       HStack {
         Text(viewStore.sentence)
-          .fontDesign(.serif)
           .fontWeight(.medium)
         Spacer()
       }
