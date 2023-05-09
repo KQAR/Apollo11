@@ -11,24 +11,22 @@ import ComposableArchitecture
 struct HomeTabView: View {
   @State private var selection = 0
   var body: some View {
-    ZStack {
-      TabView(selection: $selection) {
-        SentencePandectView(
-          store: Store(
-            initialState: SentencePandect.State(sentences: sentences),
-            reducer: SentencePandect()
-          )
+    TabView(selection: $selection) {
+      SentencePandectView(
+        store: Store(
+          initialState: SentencePandect.State(sentences: sentences),
+          reducer: SentencePandect()
         )
-          .tag(0)
-          .tabItem {
-            Image(systemName: "text.word.spacing")
-          }
-        SettingView()
-          .tag(1)
-          .tabItem {
-            Image(systemName: "gear")
-          }
+      )
+      .tag(0)
+      .tabItem {
+        Image(systemName: "text.word.spacing")
       }
+      SettingView()
+        .tag(1)
+        .tabItem {
+          Image(systemName: "gear")
+        }
     }
   }
 }

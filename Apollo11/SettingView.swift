@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Colorful
 
 struct SettingView: View {
   var body: some View {
-    Text("SettingView")
+    ZStack {
+      ColorfulView()
+      Text("SettingView")
+    }
   }
 }
 
