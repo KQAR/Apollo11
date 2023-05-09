@@ -21,12 +21,12 @@ struct HomeTabView: View {
         )
           .tag(0)
           .tabItem {
-            Text("句子")
+            Image(systemName: "text.word.spacing")
           }
         SettingView()
           .tag(1)
           .tabItem {
-            Text("设置")
+            Image(systemName: "gear")
           }
       }
     }

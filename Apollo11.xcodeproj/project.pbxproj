@@ -14,6 +14,7 @@
 		6349147129FBB2BF0036E482 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349147029FBB2BF0036E482 /* HomeTabView.swift */; };
 		6349147329FBB7240036E482 /* SentencePandectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349147229FBB7240036E482 /* SentencePandectView.swift */; };
 		6349147529FBB72D0036E482 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349147429FBB72D0036E482 /* SettingView.swift */; };
+		634CF03D2A0A475C0011D991 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF03C2A0A475C0011D991 /* Introspect */; };
 		63CFCD882A04A4F2008C0E2F /* PastedBoardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */; };
 		63CFCD8A2A04A6DA008C0E2F /* SentenceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD892A04A6DA008C0E2F /* SentenceRowView.swift */; };
 		63CFCD8C2A04DB1B008C0E2F /* SentencePandect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD8B2A04DB1B008C0E2F /* SentencePandect.swift */; };
@@ -43,6 +44,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6349146F29FBADBD0036E482 /* ComposableArchitecture in Frameworks */,
+				634CF03D2A0A475C0011D991 /* Introspect in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +112,7 @@
 			name = Apollo11;
 			packageProductDependencies = (
 				6349146E29FBADBD0036E482 /* ComposableArchitecture */,
+				634CF03C2A0A475C0011D991 /* Introspect */,
 			);
 			productName = Apollo11;
 			productReference = 6349145B29FBA30A0036E482 /* Apollo11.app */;
@@ -141,6 +144,7 @@
 			mainGroup = 6349145229FBA30A0036E482;
 			packageReferences = (
 				6349146D29FBADBD0036E482 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 			);
 			productRefGroup = 6349145C29FBA30A0036E482 /* Products */;
 			projectDirPath = "";
@@ -400,6 +404,14 @@
 				minimumVersion = 0.9.0;
 			};
 		};
+		634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -407,6 +419,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 6349146D29FBADBD0036E482 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
 			productName = ComposableArchitecture;
+		};
+		634CF03C2A0A475C0011D991 /* Introspect */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
+			productName = Introspect;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

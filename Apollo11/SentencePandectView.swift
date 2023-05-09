@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Introspect
 
 let sentences = IdentifiedArrayOf(uniqueElements: [
   SentenceRow.State(id: UUID(), sentence: "Learning how to query loaded code is essential for learning how to create breakpoints on that code. "),
@@ -27,9 +28,8 @@ struct SentencePandectView: View {
         )
       ) {
         List(viewStore.sentences) { sentence in
-          NavigationLink(value: SentencePandect.State.Destination.child(sentence)) {
-            SentenceRowView(store: Store(initialState: sentence, reducer: SentenceRow()))
-          }
+          SentenceRowView(store: Store(initialState: sentence, reducer: SentenceRow()))
+            .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence)) {})
         }
         .navigationDestination(
           for: SentencePandect.State.Destination.self
