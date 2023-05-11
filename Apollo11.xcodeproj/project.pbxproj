@@ -16,6 +16,9 @@
 		6349147529FBB72D0036E482 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349147429FBB72D0036E482 /* SettingView.swift */; };
 		634CF03D2A0A475C0011D991 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF03C2A0A475C0011D991 /* Introspect */; };
 		634CF0402A0A5BBD0011D991 /* Colorful in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF03F2A0A5BBD0011D991 /* Colorful */; };
+		634CF0432A0B3A120011D991 /* Setting in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0422A0B3A120011D991 /* Setting */; };
+		634CF0462A0B76B70011D991 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0452A0B76B70011D991 /* ElegantCalendar */; };
+		634CF0492A0B7E240011D991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0482A0B7E240011D991 /* SFSafeSymbols */; };
 		63CFCD882A04A4F2008C0E2F /* PastedBoardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */; };
 		63CFCD8A2A04A6DA008C0E2F /* SentenceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD892A04A6DA008C0E2F /* SentenceRowView.swift */; };
 		63CFCD8C2A04DB1B008C0E2F /* SentencePandect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD8B2A04DB1B008C0E2F /* SentencePandect.swift */; };
@@ -44,8 +47,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				634CF0492A0B7E240011D991 /* SFSafeSymbols in Frameworks */,
 				6349146F29FBADBD0036E482 /* ComposableArchitecture in Frameworks */,
+				634CF0432A0B3A120011D991 /* Setting in Frameworks */,
 				634CF03D2A0A475C0011D991 /* Introspect in Frameworks */,
+				634CF0462A0B76B70011D991 /* ElegantCalendar in Frameworks */,
 				634CF0402A0A5BBD0011D991 /* Colorful in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -116,6 +122,9 @@
 				6349146E29FBADBD0036E482 /* ComposableArchitecture */,
 				634CF03C2A0A475C0011D991 /* Introspect */,
 				634CF03F2A0A5BBD0011D991 /* Colorful */,
+				634CF0422A0B3A120011D991 /* Setting */,
+				634CF0452A0B76B70011D991 /* ElegantCalendar */,
+				634CF0482A0B7E240011D991 /* SFSafeSymbols */,
 			);
 			productName = Apollo11;
 			productReference = 6349145B29FBA30A0036E482 /* Apollo11.app */;
@@ -149,6 +158,9 @@
 				6349146D29FBADBD0036E482 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				634CF03E2A0A5BBD0011D991 /* XCRemoteSwiftPackageReference "Colorful" */,
+				634CF0412A0B3A120011D991 /* XCRemoteSwiftPackageReference "Setting" */,
+				634CF0442A0B76B70011D991 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
+				634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 			);
 			productRefGroup = 6349145C29FBA30A0036E482 /* Products */;
 			projectDirPath = "";
@@ -424,6 +436,30 @@
 				minimumVersion = 1.0.0;
 			};
 		};
+		634CF0412A0B3A120011D991 /* XCRemoteSwiftPackageReference "Setting" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aheze/Setting.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		634CF0442A0B76B70011D991 /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ThasianX/ElegantCalendar.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -441,6 +477,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 634CF03E2A0A5BBD0011D991 /* XCRemoteSwiftPackageReference "Colorful" */;
 			productName = Colorful;
+		};
+		634CF0422A0B3A120011D991 /* Setting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634CF0412A0B3A120011D991 /* XCRemoteSwiftPackageReference "Setting" */;
+			productName = Setting;
+		};
+		634CF0452A0B76B70011D991 /* ElegantCalendar */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634CF0442A0B76B70011D991 /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
+			productName = ElegantCalendar;
+		};
+		634CF0482A0B7E240011D991 /* SFSafeSymbols */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
+			productName = SFSafeSymbols;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
