@@ -19,6 +19,8 @@
 		634CF0432A0B3A120011D991 /* Setting in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0422A0B3A120011D991 /* Setting */; };
 		634CF0462A0B76B70011D991 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0452A0B76B70011D991 /* ElegantCalendar */; };
 		634CF0492A0B7E240011D991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0482A0B7E240011D991 /* SFSafeSymbols */; };
+		634CF04C2A0CBB7C0011D991 /* SentenceEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634CF04A2A0CBB7C0011D991 /* SentenceEntry.xcdatamodeld */; };
+		634CF0502A0CC2450011D991 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CF04F2A0CC2450011D991 /* Sentence.swift */; };
 		63CFCD882A04A4F2008C0E2F /* PastedBoardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */; };
 		63CFCD8A2A04A6DA008C0E2F /* SentenceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD892A04A6DA008C0E2F /* SentenceRowView.swift */; };
 		63CFCD8C2A04DB1B008C0E2F /* SentencePandect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD8B2A04DB1B008C0E2F /* SentencePandect.swift */; };
@@ -35,6 +37,8 @@
 		6349147029FBB2BF0036E482 /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		6349147229FBB7240036E482 /* SentencePandectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencePandectView.swift; sourceTree = "<group>"; };
 		6349147429FBB72D0036E482 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
+		634CF04B2A0CBB7C0011D991 /* SentenceEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SentenceEntry.xcdatamodel; sourceTree = "<group>"; };
+		634CF04F2A0CC2450011D991 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PastedBoardMaster.swift; sourceTree = "<group>"; };
 		63CFCD892A04A6DA008C0E2F /* SentenceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceRowView.swift; sourceTree = "<group>"; };
 		63CFCD8B2A04DB1B008C0E2F /* SentencePandect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencePandect.swift; sourceTree = "<group>"; };
@@ -90,6 +94,8 @@
 				63CFCD8F2A04EE06008C0E2F /* SentenceDetailsView.swift */,
 				6349147429FBB72D0036E482 /* SettingView.swift */,
 				63CFCD872A04A4F2008C0E2F /* PastedBoardMaster.swift */,
+				634CF04A2A0CBB7C0011D991 /* SentenceEntry.xcdatamodeld */,
+				634CF04F2A0CC2450011D991 /* Sentence.swift */,
 			);
 			path = Apollo11;
 			sourceTree = "<group>";
@@ -191,8 +197,10 @@
 				63CFCD8C2A04DB1B008C0E2F /* SentencePandect.swift in Sources */,
 				63CFCD8E2A04E748008C0E2F /* SentenceRow.swift in Sources */,
 				6349147129FBB2BF0036E482 /* HomeTabView.swift in Sources */,
+				634CF04C2A0CBB7C0011D991 /* SentenceEntry.xcdatamodeld in Sources */,
 				6349147529FBB72D0036E482 /* SettingView.swift in Sources */,
 				6349145F29FBA30A0036E482 /* Apollo11App.swift in Sources */,
+				634CF0502A0CC2450011D991 /* Sentence.swift in Sources */,
 				63CFCD8A2A04A6DA008C0E2F /* SentenceRowView.swift in Sources */,
 				63CFCD882A04A4F2008C0E2F /* PastedBoardMaster.swift in Sources */,
 				63CFCD902A04EE06008C0E2F /* SentenceDetailsView.swift in Sources */,
@@ -494,6 +502,19 @@
 			productName = SFSafeSymbols;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		634CF04A2A0CBB7C0011D991 /* SentenceEntry.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				634CF04B2A0CBB7C0011D991 /* SentenceEntry.xcdatamodel */,
+			);
+			currentVersion = 634CF04B2A0CBB7C0011D991 /* SentenceEntry.xcdatamodel */;
+			path = SentenceEntry.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 6349145329FBA30A0036E482 /* Project object */;
 }

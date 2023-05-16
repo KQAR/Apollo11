@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import SFSafeSymbols
 
 struct HomeTabView: View {
   @State private var selection = 0
@@ -20,12 +21,12 @@ struct HomeTabView: View {
       )
       .tag(0)
       .tabItem {
-        Image(systemName: "text.word.spacing")
+        Image(systemSymbol: .textWordSpacing)
       }
       SettingView()
         .tag(1)
         .tabItem {
-          Image(systemName: "gear")
+          Image(systemSymbol: .gear)
         }
     }
   }
