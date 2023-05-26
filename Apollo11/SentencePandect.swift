@@ -10,6 +10,8 @@ import ComposableArchitecture
 
 struct SentencePandect: ReducerProtocol {
   
+  @Dependency(\.pasteboardMaster) var pasteboardMaster
+  
   struct State: Equatable {
     enum Destination: Hashable {
       case child(SentenceRow.State)
@@ -17,10 +19,16 @@ struct SentencePandect: ReducerProtocol {
     var title = "Sentences"
     var path: [Destination] = []
     var sentences: IdentifiedArrayOf<SentenceRow.State>
+    var alert: AlertState<Action>?
+    var confirmationDialog: ConfirmationDialogState<Action>?
   }
   
-  enum Action {
+  enum Action: Equatable {
     case navigationPathChanged([State.Destination])
+    case pasteboardCheck
+    case alertShowing(PasteboardItem)
+    case alertDismissed
+    case paste
   }
   
   var body: some ReducerProtocol<State, Action> {
@@ -29,7 +37,47 @@ struct SentencePandect: ReducerProtocol {
       case let .navigationPathChanged(path):
         state.path = path
         return .none
+      case .pasteboardCheck:
+        guard let pasteboardItem = pasteboardMaster.recentlyPasteboardItem() else {
+          return .none
+        }
+        return .send(.alertShowing(pasteboardItem))
+      case .alertDismissed:
+        state.alert = nil
+        return .none
+      case let .alertShowing(item):
+        state.alert = alertState(with: item)
+        return .none
+      case .paste:
+        print("paste...")
+        
+        return .none
       }
+    }
+  }
+  
+  private func alertState(with item: PasteboardItem) -> AlertState<Action> {
+    return AlertState {
+      TextState("Alert!")
+    } actions: {
+      ButtonState(role: .cancel) {
+        TextState("Cancel")
+      }
+      ButtonState(action: .paste) {
+        TextState("Paste")
+      }
+    } message: {
+        switch item {
+        case let .text(text):
+          print("===== text ==> \(text)")
+          return TextState(text)
+        case let .image(image):
+          print("===== image => \(image)")
+          return TextState("this is a image")
+        case let .url(url):
+          print(url)
+          return TextState("this is a URL")
+        }
     }
   }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 import ComposableArchitecture
 import Introspect
+import PopupView
 
 let sentences = IdentifiedArrayOf(uniqueElements: [
   SentenceRow.State(id: UUID(), sentence: "Learning how to query loaded code is essential for learning how to create breakpoints on that code. "),
@@ -43,8 +44,16 @@ struct SentencePandectView: View {
         }
         .navigationTitle(viewStore.title)
       }
+      .alert(
+        self.store.scope(state: \.alert),
+        dismiss: .alertDismissed
+      )
+      .onAppear {
+        viewStore.send(.pasteboardCheck)
+      }
     }
   }
+  
 }
 
 struct SentencePandectView_Previews: PreviewProvider {
