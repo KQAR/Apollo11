@@ -48,6 +48,18 @@ struct SentencePandectView: View {
         self.store.scope(state: \.alert),
         dismiss: .alertDismissed
       )
+      .popup(isPresented: viewStore.binding(
+        get: \.popupViewIsShowing,
+        send: SentencePandect.Action.popupStateChanged)
+      ) {
+        PopupView(store: Store(initialState: viewStore.popupViewState, reducer: PopupReducer()))
+      } customize: {
+        $0.type(.floater())
+          .position(.top)
+          .animation(.spring())
+//          .closeOnTapOutside(true)
+//          .backgroundColor(.black.opacity(0.5))
+      }
       .onAppear {
         viewStore.send(.pasteboardCheck)
       }

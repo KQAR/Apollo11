@@ -9,59 +9,65 @@ import SwiftUI
 import PopupView
 import ComposableArchitecture
 
-struct PopupState<Action>: Identifiable {
-  let id: UUID
-  var title: String?
-  var text: String?
-  var image: String?
-}
-
-extension PopupState: Equatable where Action: Equatable {
-  static func == (lhs: Self, rhs: Self) -> Bool {
-    lhs.title == rhs.title
-      && lhs.text == rhs.text
-      && lhs.image == rhs.image
+struct PopupReducer: ReducerProtocol {
+  
+  struct State: Equatable {
+    var title: String?
+    var text: String?
+    var image: String?
+  }
+  
+  enum Action {
+    
+  }
+  
+  var body: some ReducerProtocol<State, Action> {
+    Reduce { state, action in
+      return .none
+    }
   }
 }
 
-extension PopupState: Hashable where Action: Hashable {
-  func hash(into hasher: inout Hasher) {
-    hasher.combine(self.title)
-    hasher.combine(self.text)
-    hasher.combine(self.image)
+struct PopupView: View {
+  
+  let store: StoreOf<PopupReducer>
+  
+  var body: some View {
+    WithViewStore(store) { viewStore in
+      ZStack {
+          RoundedRectangle(cornerRadius: 12)
+          .fill(Color.red)
+          
+          HStack(spacing: 0) {
+              Image("avatar1")
+                  .aspectRatio(1.0, contentMode: .fit)
+                  .cornerRadius(16)
+                  .padding(16.0)
+              
+              VStack(alignment: .leading, spacing: 8) {
+                  Group {
+                      Text("Adam Jameson")
+                          .bold()
+                          .foregroundColor(.black) +
+                      Text(" invites you to join his training")
+                          .foregroundColor(.black.opacity(0.6))
+                  }
+                  
+                  Button {
+                      debugPrint("Accepted!")
+                  } label: {
+                      Text("Accept".uppercased())
+                          .font(.system(size: 14, weight: .black))
+                  }
+                  .buttonStyle(.borderedProminent)
+              }
+              
+              Spacer()
+          }
+      }
+      .frame(height: 98)
+      .padding(.horizontal, 16)
+    }
   }
+  
 }
-
-//extension View {
-//  @ViewBuilder func popup<Action>(
-//    _ store: Store<PopupState<Action>?, Action>,
-//    dismiss: Action
-//  ) -> some View {
-//    
-//  }
-//}
-
-//private struct PopupViewModifier<Action>: ViewModifier {
-//  @StateObject var viewStore: ViewStore<PopupState<Action>?, Action>
-//  let dismiss: Action
-//
-//  func body(content: Content) -> some View {
-////    content.alert(
-////      (viewStore.state?.title).map { Text($0) } ?? Text(""),
-////      isPresented: viewStore.binding(send: dismiss).isPresent(),
-////      presenting: viewStore.state,
-////      actions: {
-////        ForEach($0.buttons) {
-////          Button($0) { action in
-////            if let action = action {
-////              viewStore.send(action)
-////            }
-////          }
-////        }
-////      },
-////      message: { $0.message.map { Text($0) } }
-////    )
-//    content.popup(
-//      isPresented: <#T##Binding<Bool>#>, view: <#T##() -> View#>, customize: <#T##(Popup<View>.PopupParameters) -> Popup<View>.PopupParameters#>)
-//  }
-//}

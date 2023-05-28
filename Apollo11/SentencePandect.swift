@@ -21,6 +21,8 @@ struct SentencePandect: ReducerProtocol {
     var sentences: IdentifiedArrayOf<SentenceRow.State>
     var alert: AlertState<Action>?
     var confirmationDialog: ConfirmationDialogState<Action>?
+    var popupViewIsShowing: Bool = true
+    var popupViewState = PopupReducer.State()
   }
   
   enum Action: Equatable {
@@ -28,6 +30,7 @@ struct SentencePandect: ReducerProtocol {
     case pasteboardCheck
     case alertShowing(PasteboardItem)
     case alertDismissed
+    case popupStateChanged(Bool)
     case paste
   }
   
@@ -47,6 +50,9 @@ struct SentencePandect: ReducerProtocol {
         return .none
       case let .alertShowing(item):
         state.alert = alertState(with: item)
+        return .none
+      case let .popupStateChanged(showing):
+        state.popupViewIsShowing = showing
         return .none
       case .paste:
         print("paste...")
