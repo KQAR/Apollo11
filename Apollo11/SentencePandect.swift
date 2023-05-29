@@ -49,6 +49,7 @@ struct SentencePandect: ReducerProtocol {
         state.alert = nil
         return .none
       case let .alertShowing(item):
+        state.popupViewState = popupState(with: item)
         state.alert = alertState(with: item)
         return .none
       case let .popupStateChanged(showing):
@@ -59,6 +60,17 @@ struct SentencePandect: ReducerProtocol {
         
         return .none
       }
+    }
+  }
+  
+  private func popupState(with item: PasteboardItem) -> PopupReducer.State {
+    switch item {
+    case .url(let url):
+      return PopupReducer.State()
+    case .text(let text):
+      return PopupReducer.State(text: text)
+    case .image(let image):
+      return PopupReducer.State(image: image)
     }
   }
   

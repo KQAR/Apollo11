@@ -54,8 +54,8 @@ struct SentencePandectView: View {
       ) {
         PopupView(store: Store(initialState: viewStore.popupViewState, reducer: PopupReducer()))
       } customize: {
-        $0.type(.floater())
-          .position(.top)
+        $0.type(.default)
+//          .position(.top)
           .animation(.spring())
 //          .closeOnTapOutside(true)
 //          .backgroundColor(.black.opacity(0.5))

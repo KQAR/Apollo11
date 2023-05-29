@@ -24,6 +24,8 @@
 		636258132A14E89100A2E0DE /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636258122A14E89100A2E0DE /* Debug.swift */; };
 		63873F782A20C226002F89B0 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 63873F772A20C226002F89B0 /* PopupView */; };
 		63873F7A2A20C325002F89B0 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63873F792A20C325002F89B0 /* PopupView.swift */; };
+		63873F7D2A249FA0002F89B0 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 63873F7C2A249FA0002F89B0 /* ColorKit */; };
+		63873F7F2A24A1C2002F89B0 /* GradientEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63873F7E2A24A1C2002F89B0 /* GradientEffectView.swift */; };
 		63CFCD882A04A4F2008C0E2F /* PasteboardMaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD872A04A4F2008C0E2F /* PasteboardMaster.swift */; };
 		63CFCD8A2A04A6DA008C0E2F /* SentenceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD892A04A6DA008C0E2F /* SentenceRowView.swift */; };
 		63CFCD8C2A04DB1B008C0E2F /* SentencePandect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63CFCD8B2A04DB1B008C0E2F /* SentencePandect.swift */; };
@@ -44,6 +46,7 @@
 		634CF04F2A0CC2450011D991 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
 		636258122A14E89100A2E0DE /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
 		63873F792A20C325002F89B0 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
+		63873F7E2A24A1C2002F89B0 /* GradientEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientEffectView.swift; sourceTree = "<group>"; };
 		63CFCD872A04A4F2008C0E2F /* PasteboardMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMaster.swift; sourceTree = "<group>"; };
 		63CFCD892A04A6DA008C0E2F /* SentenceRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceRowView.swift; sourceTree = "<group>"; };
 		63CFCD8B2A04DB1B008C0E2F /* SentencePandect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentencePandect.swift; sourceTree = "<group>"; };
@@ -63,6 +66,7 @@
 				634CF03D2A0A475C0011D991 /* Introspect in Frameworks */,
 				634CF0462A0B76B70011D991 /* ElegantCalendar in Frameworks */,
 				634CF0402A0A5BBD0011D991 /* Colorful in Frameworks */,
+				63873F7D2A249FA0002F89B0 /* ColorKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -104,6 +108,7 @@
 				634CF04F2A0CC2450011D991 /* Sentence.swift */,
 				636258122A14E89100A2E0DE /* Debug.swift */,
 				63873F792A20C325002F89B0 /* PopupView.swift */,
+				63873F7E2A24A1C2002F89B0 /* GradientEffectView.swift */,
 			);
 			path = Apollo11;
 			sourceTree = "<group>";
@@ -140,6 +145,7 @@
 				634CF0452A0B76B70011D991 /* ElegantCalendar */,
 				634CF0482A0B7E240011D991 /* SFSafeSymbols */,
 				63873F772A20C226002F89B0 /* PopupView */,
+				63873F7C2A249FA0002F89B0 /* ColorKit */,
 			);
 			productName = Apollo11;
 			productReference = 6349145B29FBA30A0036E482 /* Apollo11.app */;
@@ -177,6 +183,7 @@
 				634CF0442A0B76B70011D991 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
 				634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				63873F762A20C226002F89B0 /* XCRemoteSwiftPackageReference "PopupView" */,
+				63873F7B2A249FA0002F89B0 /* XCRemoteSwiftPackageReference "ColorKit" */,
 			);
 			productRefGroup = 6349145C29FBA30A0036E482 /* Products */;
 			projectDirPath = "";
@@ -213,6 +220,7 @@
 				6349145F29FBA30A0036E482 /* Apollo11App.swift in Sources */,
 				634CF0502A0CC2450011D991 /* Sentence.swift in Sources */,
 				63CFCD8A2A04A6DA008C0E2F /* SentenceRowView.swift in Sources */,
+				63873F7F2A24A1C2002F89B0 /* GradientEffectView.swift in Sources */,
 				63CFCD882A04A4F2008C0E2F /* PasteboardMaster.swift in Sources */,
 				63CFCD902A04EE06008C0E2F /* SentenceDetailsView.swift in Sources */,
 				6349147329FBB7240036E482 /* SentencePandectView.swift in Sources */,
@@ -488,6 +496,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		63873F7B2A249FA0002F89B0 /* XCRemoteSwiftPackageReference "ColorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Boris-Em/ColorKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -525,6 +541,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63873F762A20C226002F89B0 /* XCRemoteSwiftPackageReference "PopupView" */;
 			productName = PopupView;
+		};
+		63873F7C2A249FA0002F89B0 /* ColorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63873F7B2A249FA0002F89B0 /* XCRemoteSwiftPackageReference "ColorKit" */;
+			productName = ColorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 
