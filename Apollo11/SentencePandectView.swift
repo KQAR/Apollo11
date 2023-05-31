@@ -50,9 +50,9 @@ struct SentencePandectView: View {
       )
       .popup(isPresented: viewStore.binding(
         get: \.popupViewIsShowing,
-        send: SentencePandect.Action.popupStateChanged)
+        send: SentencePandect.Action.popupViewHidden)
       ) {
-        PopupView(store: Store(initialState: viewStore.popupViewState, reducer: PopupReducer()))
+        PopupView(store: self.store.scope(state: \.popupViewState, action: SentencePandect.Action.popupAction))
       } customize: {
         $0.type(.default)
 //          .position(.top)
@@ -60,7 +60,7 @@ struct SentencePandectView: View {
 //          .closeOnTapOutside(true)
 //          .backgroundColor(.black.opacity(0.5))
       }
-      .onAppear {
+      .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
         viewStore.send(.pasteboardCheck)
       }
     }

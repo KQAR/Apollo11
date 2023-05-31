@@ -9,7 +9,7 @@ import SwiftUI
 import Combine
 
 struct AnimatedGradient: View {
-  struct Model {
+  struct Model: Equatable {
     init(colors: [Color]) {
       firstGradientColors = colors
     }

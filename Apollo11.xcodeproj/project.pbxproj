@@ -21,7 +21,9 @@
 		634CF0492A0B7E240011D991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0482A0B7E240011D991 /* SFSafeSymbols */; };
 		634CF04C2A0CBB7C0011D991 /* SentenceEntry.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 634CF04A2A0CBB7C0011D991 /* SentenceEntry.xcdatamodeld */; };
 		634CF0502A0CC2450011D991 /* Sentence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634CF04F2A0CC2450011D991 /* Sentence.swift */; };
+		63587F512A275CE800EA6844 /* NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63587F502A275CE800EA6844 /* NotificationCenter.swift */; };
 		636258132A14E89100A2E0DE /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636258122A14E89100A2E0DE /* Debug.swift */; };
+		636CF39A2A25E85000DF8D1F /* OCR.swift in Sources */ = {isa = PBXBuildFile; fileRef = 636CF3992A25E85000DF8D1F /* OCR.swift */; };
 		63873F782A20C226002F89B0 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 63873F772A20C226002F89B0 /* PopupView */; };
 		63873F7A2A20C325002F89B0 /* PopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63873F792A20C325002F89B0 /* PopupView.swift */; };
 		63873F7D2A249FA0002F89B0 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 63873F7C2A249FA0002F89B0 /* ColorKit */; };
@@ -44,7 +46,9 @@
 		6349147429FBB72D0036E482 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		634CF04B2A0CBB7C0011D991 /* SentenceEntry.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SentenceEntry.xcdatamodel; sourceTree = "<group>"; };
 		634CF04F2A0CC2450011D991 /* Sentence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sentence.swift; sourceTree = "<group>"; };
+		63587F502A275CE800EA6844 /* NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCenter.swift; sourceTree = "<group>"; };
 		636258122A14E89100A2E0DE /* Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
+		636CF3992A25E85000DF8D1F /* OCR.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OCR.swift; sourceTree = "<group>"; };
 		63873F792A20C325002F89B0 /* PopupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupView.swift; sourceTree = "<group>"; };
 		63873F7E2A24A1C2002F89B0 /* GradientEffectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientEffectView.swift; sourceTree = "<group>"; };
 		63CFCD872A04A4F2008C0E2F /* PasteboardMaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasteboardMaster.swift; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 				636258122A14E89100A2E0DE /* Debug.swift */,
 				63873F792A20C325002F89B0 /* PopupView.swift */,
 				63873F7E2A24A1C2002F89B0 /* GradientEffectView.swift */,
+				636CF3992A25E85000DF8D1F /* OCR.swift */,
+				63587F502A275CE800EA6844 /* NotificationCenter.swift */,
 			);
 			path = Apollo11;
 			sourceTree = "<group>";
@@ -159,7 +165,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1420;
+				LastUpgradeCheck = 1430;
 				TargetAttributes = {
 					6349145A29FBA30A0036E482 = {
 						CreatedOnToolsVersion = 14.2;
@@ -220,7 +226,9 @@
 				6349145F29FBA30A0036E482 /* Apollo11App.swift in Sources */,
 				634CF0502A0CC2450011D991 /* Sentence.swift in Sources */,
 				63CFCD8A2A04A6DA008C0E2F /* SentenceRowView.swift in Sources */,
+				636CF39A2A25E85000DF8D1F /* OCR.swift in Sources */,
 				63873F7F2A24A1C2002F89B0 /* GradientEffectView.swift in Sources */,
+				63587F512A275CE800EA6844 /* NotificationCenter.swift in Sources */,
 				63CFCD882A04A4F2008C0E2F /* PasteboardMaster.swift in Sources */,
 				63CFCD902A04EE06008C0E2F /* SentenceDetailsView.swift in Sources */,
 				6349147329FBB7240036E482 /* SentencePandectView.swift in Sources */,
@@ -264,6 +272,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -322,6 +331,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -348,6 +358,7 @@
 				CODE_SIGN_ENTITLEMENTS = Apollo11/Apollo11.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Apollo11/Preview Content\"";
 				DEVELOPMENT_TEAM = 78X6FL4YJY;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -386,6 +397,7 @@
 				CODE_SIGN_ENTITLEMENTS = Apollo11/Apollo11.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Apollo11/Preview Content\"";
 				DEVELOPMENT_TEAM = 78X6FL4YJY;
 				ENABLE_HARDENED_RUNTIME = YES;
