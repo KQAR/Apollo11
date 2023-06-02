@@ -27,6 +27,7 @@ struct SentencePandect: ReducerProtocol {
   }
   
   enum Action: Equatable {
+    case update(IdentifiedArrayOf<SentenceRow.State>)
     case navigationPathChanged([State.Destination])
     case pasteboardCheck
     case ocrScan(UIImage)
@@ -45,6 +46,8 @@ struct SentencePandect: ReducerProtocol {
     Reduce { state, action in
       switch action {
       case .popupAction:
+        return .none
+      case .update(let sentences):
         return .none
       case let .navigationPathChanged(path):
         state.path = path
@@ -78,9 +81,9 @@ struct SentencePandect: ReducerProtocol {
         return .none
       case let .popupViewShow(image, text):
         state.popupViewState = PopupReducer.State(title: "发现剪切板有图片", text: text, image: image)
-        return .none
+        return .send(.popupViewHidden(true))
       case .paste:
-        print("paste...")
+        printLog("paste")
         return .none
       }
     }
@@ -100,4 +103,30 @@ struct SentencePandect: ReducerProtocol {
       return TextState(text)
     }
   }
+}
+
+extension SentencePandect.State {
+  static let mock = Self(
+    sentences: IdentifiedArrayOf(uniqueElements: [
+      SentenceRow.State(
+        id: UUID(),
+        tagColor: .cyan,
+        sentence: "Learning how to query loaded code is essential for learning how to create breakpoints on that code. ",
+        time: Date()
+      ),
+      SentenceRow.State(
+        id: UUID(),
+        tagColor: .purple,
+        sentence: "Both Objective-C and Swift have specific property signatures when they’re created by the compiler, which results in different querying strategies when looking for code.",
+        time: Date()
+      ),
+      SentenceRow.State(
+        id: UUID(),
+        tagColor: .orange,
+        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
+        time: Date()
+      )
+    ])
+  )
+  
 }

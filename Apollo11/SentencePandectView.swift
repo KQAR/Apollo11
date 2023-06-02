@@ -10,12 +10,6 @@ import ComposableArchitecture
 import Introspect
 import PopupView
 
-let sentences = IdentifiedArrayOf(uniqueElements: [
-  SentenceRow.State(id: UUID(), sentence: "Learning how to query loaded code is essential for learning how to create breakpoints on that code. "),
-  SentenceRow.State(id: UUID(), sentence: "Both Objective-C and Swift have specific property signatures when they’re created by the compiler, which results in different querying strategies when looking for code."),
-  SentenceRow.State(id: UUID(), sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.")
-])
-
 struct SentencePandectView: View {
   
   let store: StoreOf<SentencePandect>
@@ -28,10 +22,14 @@ struct SentencePandectView: View {
           send: SentencePandect.Action.navigationPathChanged
         )
       ) {
-        List(viewStore.sentences) { sentence in
-          SentenceRowView(store: Store(initialState: sentence, reducer: SentenceRow()))
-            .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence)) {})
-        }
+        List(viewStore.binding(get: \.sentences, send: SentencePandect.Action.update), editActions: [.delete, .move], rowContent: { sentence in
+          SentenceRowView(store: Store(initialState: sentence.wrappedValue, reducer: SentenceRow()))
+            .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence.wrappedValue)) {})
+        })
+//        List(viewStore.sentences) { sentence in
+//          SentenceRowView(store: Store(initialState: sentence, reducer: SentenceRow()))
+//            .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence)) {})
+//        }
         .navigationDestination(
           for: SentencePandect.State.Destination.self
         ) { destination in
@@ -55,10 +53,7 @@ struct SentencePandectView: View {
         PopupView(store: self.store.scope(state: \.popupViewState, action: SentencePandect.Action.popupAction))
       } customize: {
         $0.type(.default)
-//          .position(.top)
           .animation(.spring())
-//          .closeOnTapOutside(true)
-//          .backgroundColor(.black.opacity(0.5))
       }
       .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
         viewStore.send(.pasteboardCheck)
@@ -72,7 +67,7 @@ struct SentencePandectView_Previews: PreviewProvider {
   static var previews: some View {
     SentencePandectView(
       store: Store(
-        initialState: SentencePandect.State(sentences: sentences),
+        initialState: .mock,
         reducer: SentencePandect()
       )
     )

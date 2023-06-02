@@ -12,6 +12,8 @@ import ColorKit
 
 struct PopupReducer: ReducerProtocol {
   
+  @Dependency(\.pasteboardMaster) var pasteboardMaster
+  
   struct State: Equatable {
     var title: String?
     var text: String?
@@ -25,6 +27,7 @@ struct PopupReducer: ReducerProtocol {
     case flip
     case updateGradient
     case updateGradientModel(AnimatedGradient.Model)
+    case copy
   }
   
   func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
@@ -46,6 +49,11 @@ struct PopupReducer: ReducerProtocol {
       return .none
     case .updateGradientModel(let model):
       state.gradientModel = model
+      return .none
+    case .copy:
+      if let text = state.text {
+        pasteboardMaster.copyToClipboard(text: text)
+      }
       return .none
     }
   }
@@ -90,8 +98,7 @@ struct PopupView: View {
             VStack(alignment: .center, spacing: 8) {
               Text(viewStore.text ?? "")
               Button {
-                debugPrint("Copy!")
-
+                viewStore.send(.copy)
               } label: {
                 Text("copy".uppercased())
                   .font(.system(size: 14, weight: .black))

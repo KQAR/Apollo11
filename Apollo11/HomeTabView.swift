@@ -15,7 +15,7 @@ struct HomeTabView: View {
     TabView(selection: $selection) {
       SentencePandectView(
         store: Store(
-          initialState: SentencePandect.State(sentences: sentences),
+          initialState: .mock,
           reducer: SentencePandect()
         )
       )
@@ -23,8 +23,13 @@ struct HomeTabView: View {
       .tabItem {
         Image(systemSymbol: .textWordSpacing)
       }
-      SettingView()
+      CalendarView()
         .tag(1)
+        .tabItem {
+          Image(systemSymbol: .calendar)
+        }
+      SettingView()
+        .tag(2)
         .tabItem {
           Image(systemSymbol: .gear)
         }

@@ -23,7 +23,7 @@ struct SentenceDetails_Previews: PreviewProvider {
   static var previews: some View {
     SentenceDetailsView(
       store: Store(
-        initialState: SentenceRow.State(id: UUID(), sentence: "feijiji"),
+        initialState: .mock,
         reducer: SentenceRow()
       )
     )

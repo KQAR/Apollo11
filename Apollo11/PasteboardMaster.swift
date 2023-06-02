@@ -63,6 +63,11 @@ class PasteboardMaster: PasteSecurable {
     }
     return nil
   }
+  
+  public func copyToClipboard(text: String) {
+    let pastedBoard = UIPasteboard.general
+    pastedBoard.string = text
+  }
 }
 
 // MARK: - Dependency Inject
