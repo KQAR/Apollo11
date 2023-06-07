@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ComposableArchitecture
 
 @main
 struct Apollo11App: App {
@@ -14,8 +15,8 @@ struct Apollo11App: App {
   
   var body: some Scene {
     WindowGroup {
-      HomeTabView()
-        
+//      HomeTabView()
+      AppView(store: Store(initialState: .init(), reducer: AppReducer()))
     }
   }
 }

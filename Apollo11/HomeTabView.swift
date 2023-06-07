@@ -34,6 +34,11 @@ struct HomeTabView: View {
           Image(systemSymbol: .gear)
         }
     }
+    .safeAreaInset(edge: .bottom) {
+      HStack {
+        
+      }
+    }
   }
 }
 
