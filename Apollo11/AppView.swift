@@ -44,7 +44,6 @@ extension AppView {
           .frame(maxWidth: .infinity, alignment: .center)
           .contentShape(Rectangle())
           .onTapGesture {
-            print("ddddd ===> \(item)")
             viewStore.send(.set(\.$tab, item), animation: .linear(duration: 0.15))
           }
         }

@@ -22,14 +22,13 @@ struct SentencePandectView: View {
           send: SentencePandect.Action.navigationPathChanged
         )
       ) {
-        List(viewStore.binding(get: \.sentences, send: SentencePandect.Action.update), editActions: [.delete, .move], rowContent: { sentence in
+        List(
+          viewStore.binding(get: \.sentences, send: SentencePandect.Action.update),
+          editActions: [.delete, .move]
+        ) { sentence in
           SentenceRowView(store: Store(initialState: sentence.wrappedValue, reducer: SentenceRow()))
             .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence.wrappedValue)) {})
-        })
-//        List(viewStore.sentences) { sentence in
-//          SentenceRowView(store: Store(initialState: sentence, reducer: SentenceRow()))
-//            .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence)) {})
-//        }
+        }
         .navigationDestination(
           for: SentencePandect.State.Destination.self
         ) { destination in
@@ -41,6 +40,10 @@ struct SentencePandectView: View {
           }
         }
         .navigationTitle(viewStore.title)
+        .safeAreaInset(edge: .bottom) {
+          Spacer()
+            .frame(maxHeight: 66)
+        }
       }
       .alert(
         self.store.scope(state: \.alert),

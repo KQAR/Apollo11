@@ -15,7 +15,6 @@ struct Apollo11App: App {
   
   var body: some Scene {
     WindowGroup {
-//      HomeTabView()
       AppView(store: Store(initialState: .init(), reducer: AppReducer()))
     }
   }

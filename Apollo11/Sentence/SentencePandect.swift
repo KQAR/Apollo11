@@ -48,6 +48,7 @@ struct SentencePandect: ReducerProtocol {
       case .popupAction:
         return .none
       case .update(let sentences):
+        state.sentences = sentences
         return .none
       case let .navigationPathChanged(path):
         state.path = path
