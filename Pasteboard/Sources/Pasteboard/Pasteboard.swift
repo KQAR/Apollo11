@@ -1,27 +1,21 @@
-//
-//  PasteboardMaster.swift
-//  Apollo11
-//
-//  Created by Jarvis on 2023/5/5.
-//
-
 import UIKit
 import Foundation
 import MobileCoreServices
 import UniformTypeIdentifiers
 import ComposableArchitecture
+import Debug
 
-protocol PasteSecurable {
+public protocol PasteSecurable {
   func recentlyPasteboardItem() -> PasteboardItem?
 }
 
-enum PasteboardItem: Equatable {
+public enum PasteboardItem: Equatable {
   case url(URL)
   case text(String)
   case image(UIImage)
 }
 
-class PasteboardMaster: PasteSecurable {
+public class PasteboardMaster: PasteSecurable {
   
   static let shared = PasteboardMaster()
   
@@ -73,10 +67,10 @@ class PasteboardMaster: PasteSecurable {
 // MARK: - Dependency Inject
 
 extension PasteboardMaster: DependencyKey {
-  static var liveValue = PasteboardMaster.shared
+  public static var liveValue = PasteboardMaster.shared
 }
 
-extension DependencyValues {
+public extension DependencyValues {
   var pasteboardMaster: PasteboardMaster {
      get { self[PasteboardMaster.self] }
      set { self[PasteboardMaster.self] = newValue }

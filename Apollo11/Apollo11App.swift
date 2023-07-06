@@ -7,6 +7,7 @@
 
 import SwiftUI
 import ComposableArchitecture
+import Debug
 
 @main
 struct Apollo11App: App {

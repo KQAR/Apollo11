@@ -9,9 +9,9 @@ import UIKit
 import Vision
 import VisionKit
 
-struct OCR {
+public struct OCR {
   
-  static func scanText(from image: UIImage) async throws -> String? {
+  public static func scanText(from image: UIImage) async throws -> String? {
     try await withCheckedThrowingContinuation { continuation in
       let request = VNRecognizeTextRequest { request, error in
         guard let observations = request.results as? [VNRecognizedTextObservation] else {
@@ -46,7 +46,7 @@ struct OCR {
     }
   }
   
-  static func vision(from image: UIImage) async throws -> ImageAnalysis {
+  public static func vision(from image: UIImage) async throws -> ImageAnalysis {
     return try await ImageAnalyzer().analyze(image, configuration: ImageAnalyzer.Configuration(.text))
   }
 }

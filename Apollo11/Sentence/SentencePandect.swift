@@ -8,6 +8,9 @@
 import UIKit
 import Foundation
 import ComposableArchitecture
+import Pasteboard
+import Debug
+import OCR
 
 struct SentencePandect: ReducerProtocol {
   
