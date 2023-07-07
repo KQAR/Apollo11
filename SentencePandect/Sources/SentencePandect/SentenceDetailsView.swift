@@ -8,14 +8,18 @@
 import SwiftUI
 import ComposableArchitecture
 
-struct SentenceDetailsView: View {
+public struct SentenceDetailsView: View {
   
   let store: StoreOf<SentenceRow>
   
-  var body: some View {
+  public var body: some View {
     WithViewStore(store) { viewStore in
       Text(viewStore.sentence)
     }
+  }
+  
+  public init(store: StoreOf<SentenceRow>) {
+    self.store = store
   }
 }
 

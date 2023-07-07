@@ -8,9 +8,9 @@
 import SwiftUI
 import Combine
 
-struct AnimatedGradient: View {
-  struct Model: Equatable {
-    init(colors: [Color]) {
+public struct AnimatedGradient: View {
+  public struct Model: Equatable {
+    public init(colors: [Color]) {
       firstGradientColors = colors
     }
     
@@ -39,7 +39,7 @@ struct AnimatedGradient: View {
     _model = model
   }
   
-  var body: some View {
+  public var body: some View {
     ZStack {
       LinearGradient(
         gradient: Gradient(colors: model.firstGradientColors),

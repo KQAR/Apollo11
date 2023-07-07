@@ -9,12 +9,13 @@ import SwiftUI
 import ComposableArchitecture
 import Introspect
 import PopupView
+import Popup
 
-struct SentencePandectView: View {
+public struct SentencePandectView: View {
   
   let store: StoreOf<SentencePandect>
   
-  var body: some View {
+  public var body: some View {
     WithViewStore(store) { viewStore in
       NavigationStack(
         path: viewStore.binding(
@@ -64,6 +65,9 @@ struct SentencePandectView: View {
     }
   }
   
+  public init(store: StoreOf<SentencePandect>) {
+    self.store = store
+  }
 }
 
 struct SentencePandectView_Previews: PreviewProvider {

@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Date {
+public extension Date {
 
     var timeOnlyWithPadding: String {
         Formatter.timeOnlyWithPadding.string(from: self)
@@ -27,7 +27,7 @@ extension Date {
 
 }
 
-extension Formatter {
+public extension Formatter {
 
     static let timeOnlyWithPadding: DateFormatter = {
         let formatter = DateFormatter()

@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 import ElegantCalendar
 
-struct CalendarView: View {
+public struct CalendarView: View {
   
 //  @ObservedObject var calendarManager = ElegantCalendarManager(
 //    configuration: CalendarConfiguration(
@@ -18,8 +18,10 @@ struct CalendarView: View {
 //    )
 //  )
   
-  var body: some View {
+  public var body: some View {
 //    ElegantCalendarView(calendarManager: calendarManager)
     Text("CalendarView")
   }
+  
+  public init() {}
 }

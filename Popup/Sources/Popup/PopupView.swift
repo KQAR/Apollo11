@@ -9,28 +9,43 @@ import SwiftUI
 import ComposableArchitecture
 import ColorKit
 import Debug
+import Pasteboard
 
-struct PopupReducer: ReducerProtocol {
+public struct PopupReducer: ReducerProtocol {
   
   @Dependency(\.pasteboardMaster) var pasteboardMaster
   
-  struct State: Equatable {
+  public struct State: Equatable {
     var title: String?
     var text: String?
     var image: UIImage?
     var gradientModel = AnimatedGradient.Model(colors: [])
     
     var flipped = false
+    
+    public init(
+      title: String? = nil,
+      text: String? = nil,
+      image: UIImage? = nil,
+      gradientModel: AnimatedGradient.Model = AnimatedGradient.Model(colors: []),
+      flipped: Bool = false
+    ) {
+      self.title = title
+      self.text = text
+      self.image = image
+      self.gradientModel = gradientModel
+      self.flipped = flipped
+    }
   }
   
-  enum Action: Equatable {
+  public enum Action: Equatable {
     case flip
     case updateGradient
     case updateGradientModel(AnimatedGradient.Model)
     case copy
   }
   
-  func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+  public func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
     switch action {
     case .flip:
       state.flipped.toggle()
@@ -57,15 +72,17 @@ struct PopupReducer: ReducerProtocol {
       return .none
     }
   }
+  
+  public init() {}
 }
 
-struct PopupView: View {
+public struct PopupView: View {
   
   let store: StoreOf<PopupReducer>
   
 //  @State var gradietnModel = AnimatedGradient.Model(colors: [])
   
-  var body: some View {
+  public var body: some View {
     WithViewStore(store) { viewStore in
       ZStack {
         if viewStore.flipped == false {
@@ -123,6 +140,10 @@ struct PopupView: View {
         viewStore.send(.updateGradient)
       }
     }
+  }
+  
+  public init(store: StoreOf<PopupReducer>) {
+    self.store = store
   }
 }
 

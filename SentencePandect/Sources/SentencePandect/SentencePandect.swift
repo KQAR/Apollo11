@@ -11,13 +11,14 @@ import ComposableArchitecture
 import Pasteboard
 import Debug
 import OCR
+import Popup
 
-struct SentencePandect: ReducerProtocol {
+public struct SentencePandect: ReducerProtocol {
   
   @Dependency(\.pasteboardMaster) var pasteboardMaster
   
-  struct State: Equatable {
-    enum Destination: Hashable {
+  public struct State: Equatable {
+    public enum Destination: Hashable {
       case child(SentenceRow.State)
     }
     var title = "Sentences"
@@ -29,7 +30,7 @@ struct SentencePandect: ReducerProtocol {
     var popupViewState = PopupReducer.State()
   }
   
-  enum Action: Equatable {
+  public enum Action: Equatable {
     case update(IdentifiedArrayOf<SentenceRow.State>)
     case navigationPathChanged([State.Destination])
     case pasteboardCheck
@@ -42,7 +43,7 @@ struct SentencePandect: ReducerProtocol {
     case popupAction(PopupReducer.Action)
   }
   
-  var body: some ReducerProtocol<State, Action> {
+  public var body: some ReducerProtocol<State, Action> {
     Scope(state: \.popupViewState, action: /Action.popupAction) {
       PopupReducer()
     }
@@ -93,6 +94,8 @@ struct SentencePandect: ReducerProtocol {
     }
   }
   
+  public init() {}
+  
   private func alertState(with text: String) -> AlertState<Action> {
     return AlertState {
       TextState("Alert!")
@@ -109,7 +112,7 @@ struct SentencePandect: ReducerProtocol {
   }
 }
 
-extension SentencePandect.State {
+public extension SentencePandect.State {
   static let mock = Self(
     sentences: IdentifiedArrayOf(uniqueElements: [
       SentenceRow.State(

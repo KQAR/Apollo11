@@ -8,26 +8,29 @@
 import SwiftUI
 import Foundation
 import ComposableArchitecture
+import Extensions
 
-struct SentenceRow: ReducerProtocol {
+public struct SentenceRow: ReducerProtocol {
   
-  struct State: Hashable, Identifiable {
-    let id: UUID
-    let tagColor: Color
-    let sentence: String
-    let time: Date
-    var timeString: String {
+  public struct State: Hashable, Identifiable {
+    public let id: UUID
+    public let tagColor: Color
+    public let sentence: String
+    public let time: Date
+    public var timeString: String {
       return time.timeOnlyWithPadding
     }
   }
   
-  enum Action: Equatable { }
+  public enum Action: Equatable { }
   
-  var body: some ReducerProtocol<State, Action> {
+  public var body: some ReducerProtocol<State, Action> {
     Reduce { state, action in
       return .none
     }
   }
+  
+  public init() {}
 }
 
 extension SentenceRow.State {
