@@ -9,7 +9,7 @@ import ComposableArchitecture
 import SFSafeSymbols
 import SentencePandect
 
-struct AppReducer: ReducerProtocol {
+public struct AppReducer: ReducerProtocol {
   
   enum Tab: String, CaseIterable {
     case home
@@ -36,20 +36,22 @@ struct AppReducer: ReducerProtocol {
     }
   }
   
-  struct State {
+  public struct State {
     @BindingState
     var tab = Tab.home
     
     var home = SentencePandect.State.mock
+    
+    public init() {}
   }
   
-  enum Action: BindableAction {
+  public enum Action: BindableAction {
    case binding(BindingAction<State>)
     
     case home(SentencePandect.Action)
   }
   
-  var body: some ReducerProtocol<State, Action> {
+  public var body: some ReducerProtocol<State, Action> {
     Scope(state: \.home, action: /Action.home) {
       SentencePandect()
     }
@@ -58,4 +60,6 @@ struct AppReducer: ReducerProtocol {
       return .none
     }
   }
+  
+  public init() {}
 }

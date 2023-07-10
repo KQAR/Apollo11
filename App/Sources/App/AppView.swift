@@ -10,12 +10,13 @@ import ComposableArchitecture
 import Profile
 import Calendar
 import SentencePandect
+import ViewComponents
 
-struct AppView: View {
+public struct AppView: View {
   
   let store: StoreOf<AppReducer>
   
-  var body: some View {
+  public var body: some View {
     ZStack {
       WithViewStore(store, observe: \.tab) { viewStore in
         switch viewStore.state {
@@ -30,6 +31,10 @@ struct AppView: View {
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)
     .safeAreaInset(edge: .bottom, spacing: 0) { tabBar }
+  }
+  
+  public init(store: StoreOf<AppReducer>) {
+    self.store = store
   }
 }
 
@@ -61,7 +66,7 @@ extension AppView {
   }
 }
 
-struct  AppView_Previews: PreviewProvider {
+struct AppView_Previews: PreviewProvider {
   static var previews: some View {
     AppView(store: Store(initialState: .init(), reducer: AppReducer()))
   }
