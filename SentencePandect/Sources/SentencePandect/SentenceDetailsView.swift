@@ -13,7 +13,7 @@ public struct SentenceDetailsView: View {
   let store: StoreOf<SentenceRow>
   
   public var body: some View {
-    WithViewStore(store) { viewStore in
+    WithViewStore(store, observe: { $0 }) { viewStore in
       Text(viewStore.sentence)
     }
   }
@@ -26,10 +26,9 @@ public struct SentenceDetailsView: View {
 struct SentenceDetails_Previews: PreviewProvider {
   static var previews: some View {
     SentenceDetailsView(
-      store: Store(
-        initialState: .mock,
-        reducer: SentenceRow()
-      )
+      store: Store(initialState: .mock) {
+        SentenceRow()
+      }
     )
   }
 }

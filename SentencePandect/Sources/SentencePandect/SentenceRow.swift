@@ -10,7 +10,7 @@ import Foundation
 import ComposableArchitecture
 import Extensions
 
-public struct SentenceRow: ReducerProtocol {
+public struct SentenceRow: Reducer {
   
   public struct State: Hashable, Identifiable {
     public let id: UUID
@@ -24,7 +24,7 @@ public struct SentenceRow: ReducerProtocol {
   
   public enum Action: Equatable { }
   
-  public var body: some ReducerProtocol<State, Action> {
+  public var body: some Reducer<State, Action> {
     Reduce { state, action in
       return .none
     }

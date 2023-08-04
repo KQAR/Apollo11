@@ -20,7 +20,7 @@ let package = Package(
     .package(path: "Sources/Pasteboard"),
     .package(path: "Sources/Extensions"),
     .package(path: "Sources/Popup"),
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "0.55.0"),
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.0.0"),
     .package(url: "https://github.com/exyte/PopupView.git", from: "2.0.0"),
   ],
   targets: [

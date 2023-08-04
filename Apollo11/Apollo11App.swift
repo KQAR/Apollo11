@@ -17,7 +17,11 @@ struct Apollo11App: App {
   
   var body: some Scene {
     WindowGroup {
-      AppView(store: Store(initialState: .init(), reducer: AppReducer()))
+      AppView(
+        store: Store(initialState: .init()) {
+          AppReducer()
+        }
+      )
     }
   }
 }

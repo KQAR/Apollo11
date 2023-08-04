@@ -13,7 +13,7 @@ import Debug
 import OCR
 import Popup
 
-public struct SentencePandect: ReducerProtocol {
+public struct SentencePandect: Reducer {
   
   @Dependency(\.pasteboardMaster) var pasteboardMaster
   
@@ -24,10 +24,11 @@ public struct SentencePandect: ReducerProtocol {
     var title = "Sentences"
     var path: [Destination] = []
     var sentences: IdentifiedArrayOf<SentenceRow.State>
-    var alert: AlertState<Action>?
     var confirmationDialog: ConfirmationDialogState<Action>?
     var popupViewIsShowing: Bool = false
     var popupViewState = PopupReducer.State()
+    
+    @PresentationState var alert: AlertState<Action.Alert>?
   }
   
   public enum Action: Equatable {
@@ -36,14 +37,18 @@ public struct SentencePandect: ReducerProtocol {
     case pasteboardCheck
     case ocrScan(UIImage)
     case alertShowing(String)
-    case alertDismissed
+    case alert(PresentationAction<Alert>)
     case popupViewHidden(Bool)
     case popupViewShow(UIImage, String)
     case paste
     case popupAction(PopupReducer.Action)
+    
+    public enum Alert: Equatable {
+      case paste
+    }
   }
   
-  public var body: some ReducerProtocol<State, Action> {
+  public var body: some Reducer<State, Action> {
     Scope(state: \.popupViewState, action: /Action.popupAction) {
       PopupReducer()
     }
@@ -75,8 +80,11 @@ public struct SentencePandect: ReducerProtocol {
           let text = try await OCR.vision(from: image).transcript
           await send(.popupViewShow(image, text))
         }
-      case .alertDismissed:
+      case .alert(.presented(.paste)):
+        printLog("paste~~~")
         state.alert = nil
+        return .none
+      case .alert:
         return .none
       case let .alertShowing(text):
         state.alert = alertState(with: text)
@@ -96,7 +104,7 @@ public struct SentencePandect: ReducerProtocol {
   
   public init() {}
   
-  private func alertState(with text: String) -> AlertState<Action> {
+  private func alertState(with text: String) -> AlertState<Action.Alert> {
     return AlertState {
       TextState("Alert!")
     } actions: {

@@ -15,12 +15,12 @@
 		6349145F29FBA30A0036E482 /* Apollo11App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6349145E29FBA30A0036E482 /* Apollo11App.swift */; };
 		6349146329FBA30B0036E482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6349146229FBA30B0036E482 /* Assets.xcassets */; };
 		6349146729FBA30B0036E482 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6349146629FBA30B0036E482 /* Preview Assets.xcassets */; };
-		6349146F29FBADBD0036E482 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 6349146E29FBADBD0036E482 /* ComposableArchitecture */; };
 		634CF03D2A0A475C0011D991 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF03C2A0A475C0011D991 /* Introspect */; };
 		634CF0402A0A5BBD0011D991 /* Colorful in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF03F2A0A5BBD0011D991 /* Colorful */; };
 		634CF0432A0B3A120011D991 /* Setting in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0422A0B3A120011D991 /* Setting */; };
 		634CF0462A0B76B70011D991 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0452A0B76B70011D991 /* ElegantCalendar */; };
 		634CF0492A0B7E240011D991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0482A0B7E240011D991 /* SFSafeSymbols */; };
+		634D08662A7B863F00526F4D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 634D08652A7B863F00526F4D /* ComposableArchitecture */; };
 		636A681D2A5BF87500F38251 /* ViewComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 636A681C2A5BF87500F38251 /* ViewComponents */; };
 		636A68202A5BFE0B00F38251 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 636A681F2A5BFE0B00F38251 /* App */; };
 		63873F782A20C226002F89B0 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 63873F772A20C226002F89B0 /* PopupView */; };
@@ -55,6 +55,7 @@
 			files = (
 				636A68202A5BFE0B00F38251 /* App in Frameworks */,
 				63ABB3C72A56791400273680 /* Pasteboard in Frameworks */,
+				634D08662A7B863F00526F4D /* ComposableArchitecture in Frameworks */,
 				63ABB3C52A56790F00273680 /* Debug in Frameworks */,
 				63455B142A581CF200AE5CFF /* Calendar in Frameworks */,
 				634CF0492A0B7E240011D991 /* SFSafeSymbols in Frameworks */,
@@ -63,7 +64,6 @@
 				63455B0E2A56D49500AE5CFF /* OCR in Frameworks */,
 				63873F782A20C226002F89B0 /* PopupView in Frameworks */,
 				636A681D2A5BF87500F38251 /* ViewComponents in Frameworks */,
-				6349146F29FBADBD0036E482 /* ComposableArchitecture in Frameworks */,
 				63455B1D2A58224000AE5CFF /* Popup in Frameworks */,
 				634CF0432A0B3A120011D991 /* Setting in Frameworks */,
 				634CF03D2A0A475C0011D991 /* Introspect in Frameworks */,
@@ -147,7 +147,6 @@
 			);
 			name = Apollo11;
 			packageProductDependencies = (
-				6349146E29FBADBD0036E482 /* ComposableArchitecture */,
 				634CF03C2A0A475C0011D991 /* Introspect */,
 				634CF03F2A0A5BBD0011D991 /* Colorful */,
 				634CF0422A0B3A120011D991 /* Setting */,
@@ -165,6 +164,7 @@
 				63455B1C2A58224000AE5CFF /* Popup */,
 				636A681C2A5BF87500F38251 /* ViewComponents */,
 				636A681F2A5BFE0B00F38251 /* App */,
+				634D08652A7B863F00526F4D /* ComposableArchitecture */,
 			);
 			productName = Apollo11;
 			productReference = 6349145B29FBA30A0036E482 /* Apollo11.app */;
@@ -195,7 +195,6 @@
 			);
 			mainGroup = 6349145229FBA30A0036E482;
 			packageReferences = (
-				6349146D29FBADBD0036E482 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				634CF03E2A0A5BBD0011D991 /* XCRemoteSwiftPackageReference "Colorful" */,
 				634CF0412A0B3A120011D991 /* XCRemoteSwiftPackageReference "Setting" */,
@@ -204,6 +203,7 @@
 				63873F762A20C226002F89B0 /* XCRemoteSwiftPackageReference "PopupView" */,
 				63873F7B2A249FA0002F89B0 /* XCRemoteSwiftPackageReference "ColorKit" */,
 				63E8AC052A2998E000ED2064 /* XCRemoteSwiftPackageReference "SwiftTheme" */,
+				634D08642A7B863F00526F4D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 			);
 			productRefGroup = 6349145C29FBA30A0036E482 /* Products */;
 			projectDirPath = "";
@@ -451,14 +451,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		6349146D29FBADBD0036E482 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.55.0;
-			};
-		};
 		634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
@@ -497,6 +489,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 4.0.0;
+			};
+		};
+		634D08642A7B863F00526F4D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
 			};
 		};
 		63873F762A20C226002F89B0 /* XCRemoteSwiftPackageReference "PopupView" */ = {
@@ -546,11 +546,6 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = Popup;
 		};
-		6349146E29FBADBD0036E482 /* ComposableArchitecture */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 6349146D29FBADBD0036E482 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
-			productName = ComposableArchitecture;
-		};
 		634CF03C2A0A475C0011D991 /* Introspect */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */;
@@ -575,6 +570,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
 			productName = SFSafeSymbols;
+		};
+		634D08652A7B863F00526F4D /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 634D08642A7B863F00526F4D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
 		};
 		636A681C2A5BF87500F38251 /* ViewComponents */ = {
 			isa = XCSwiftPackageProductDependency;

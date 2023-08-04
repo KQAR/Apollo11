@@ -13,7 +13,7 @@ struct SentenceRowView: View {
   let store: StoreOf<SentenceRow>
   
   var body: some View {
-    WithViewStore(store) { viewStore in
+    WithViewStore(store, observe: { $0 }) { viewStore in
 //      HStack {
 //        Text(viewStore.sentence)
 //          .fontWeight(.medium)
@@ -46,10 +46,9 @@ struct SentenceRowView: View {
 struct SentenceRow_Previews: PreviewProvider {
   static var previews: some View {
     SentenceRowView(
-      store: Store(
-        initialState: .mock,
-        reducer: SentenceRow()
-      )
+      store: Store(initialState: .mock) {
+        SentenceRow()
+      }
     )
   }
 }

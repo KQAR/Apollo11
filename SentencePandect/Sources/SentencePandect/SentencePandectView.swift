@@ -15,7 +15,7 @@ public struct SentencePandectView: View {
   let store: StoreOf<SentencePandect>
   
   public var body: some View {
-    WithViewStore(store) { viewStore in
+    WithViewStore(store, observe: { $0 }) { viewStore in
       NavigationStack(
         path: viewStore.binding(
           get: \.path,
@@ -26,7 +26,9 @@ public struct SentencePandectView: View {
           viewStore.binding(get: \.sentences, send: SentencePandect.Action.update),
           editActions: [.delete, .move]
         ) { sentence in
-          SentenceRowView(store: Store(initialState: sentence.wrappedValue, reducer: SentenceRow()))
+          SentenceRowView(store: Store(initialState: sentence.wrappedValue) {
+            SentenceRow()
+          })
             .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence.wrappedValue)) {})
         }
         .navigationDestination(
@@ -35,7 +37,9 @@ public struct SentencePandectView: View {
           switch destination {
           case let .child(sentence):
             SentenceDetailsView(
-              store: Store(initialState: sentence, reducer: SentenceRow())
+              store: Store(initialState: sentence) {
+                SentenceRow()
+              }
             )
           }
         }
@@ -45,10 +49,7 @@ public struct SentencePandectView: View {
             .frame(maxHeight: 66)
         }
       }
-      .alert(
-        self.store.scope(state: \.alert),
-        dismiss: .alertDismissed
-      )
+      .alert(store: self.store.scope(state: \.$alert, action: { .alert($0) }))
       .popup(isPresented: viewStore.binding(
         get: \.popupViewIsShowing,
         send: SentencePandect.Action.popupViewHidden)
@@ -72,10 +73,9 @@ public struct SentencePandectView: View {
 struct SentencePandectView_Previews: PreviewProvider {
   static var previews: some View {
     SentencePandectView(
-      store: Store(
-        initialState: .mock,
-        reducer: SentencePandect()
-      )
+      store: Store(initialState: .mock) {
+        SentencePandect()
+      }
     )
   }
 }

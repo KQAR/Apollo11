@@ -68,6 +68,10 @@ extension AppView {
 
 struct AppView_Previews: PreviewProvider {
   static var previews: some View {
-    AppView(store: Store(initialState: .init(), reducer: AppReducer()))
+    AppView(
+      store: Store(initialState: .init()) {
+        AppReducer()
+      }
+    )
   }
 }

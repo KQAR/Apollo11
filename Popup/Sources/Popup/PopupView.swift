@@ -11,7 +11,7 @@ import ColorKit
 import Debug
 import Pasteboard
 
-public struct PopupReducer: ReducerProtocol {
+public struct PopupReducer: Reducer {
   
   @Dependency(\.pasteboardMaster) var pasteboardMaster
   
@@ -45,7 +45,7 @@ public struct PopupReducer: ReducerProtocol {
     case copy
   }
   
-  public func reduce(into state: inout State, action: Action) -> EffectTask<Action> {
+  public func reduce(into state: inout State, action: Action) -> Effect<Action> {
     switch action {
     case .flip:
       state.flipped.toggle()
@@ -80,50 +80,48 @@ public struct PopupView: View {
   
   let store: StoreOf<PopupReducer>
   
-//  @State var gradietnModel = AnimatedGradient.Model(colors: [])
-  
   public var body: some View {
-    WithViewStore(store) { viewStore in
+    WithViewStore(store, observe: { $0 }) { viewStore in
       ZStack {
         if viewStore.flipped == false {
-            VStack(alignment: .center, spacing: 8) {
-              Spacer()
-
-              Text(viewStore.title ?? "")
-                .bold()
-                .foregroundColor(.black)
-
-              Image(uiImage: viewStore.image ?? UIImage())
-                .resizable()
-                .scaledToFit()
-                .frame(width: 200, height: 200, alignment: .center)
-                .cornerRadius(8)
-                .padding(15.0)
-
-              Button {
-                debugPrint("Accepted!")
-                viewStore.send(.flip)
-              } label: {
-                Text("Accept".uppercased())
-                  .font(.system(size: 14, weight: .black))
-              }
-              .buttonStyle(.borderedProminent)
-
-              Spacer()
+          VStack(alignment: .center, spacing: 8) {
+            Spacer()
+            
+            Text(viewStore.title ?? "")
+              .bold()
+              .foregroundColor(.black)
+            
+            Image(uiImage: viewStore.image ?? UIImage())
+              .resizable()
+              .scaledToFit()
+              .frame(width: 200, height: 200, alignment: .center)
+              .cornerRadius(8)
+              .padding(15.0)
+            
+            Button {
+              debugPrint("Accepted!")
+              viewStore.send(.flip)
+            } label: {
+              Text("Accept".uppercased())
+                .font(.system(size: 14, weight: .black))
             }
+            .buttonStyle(.borderedProminent)
+            
+            Spacer()
+          }
         } else {
-            VStack(alignment: .center, spacing: 8) {
-              Text(viewStore.text ?? "")
-              Button {
-                viewStore.send(.copy)
-              } label: {
-                Text("copy".uppercased())
-                  .font(.system(size: 14, weight: .black))
-              }
-              .buttonStyle(.borderedProminent)
+          VStack(alignment: .center, spacing: 8) {
+            Text(viewStore.text ?? "")
+            Button {
+              viewStore.send(.copy)
+            } label: {
+              Text("copy".uppercased())
+                .font(.system(size: 14, weight: .black))
             }
-            .padding(16)
-            .rotation3DEffect(.degrees( -180.0), axis: (x: 0.0, y: 1.0, z: 0.0))
+            .buttonStyle(.borderedProminent)
+          }
+          .padding(16)
+          .rotation3DEffect(.degrees( -180.0), axis: (x: 0.0, y: 1.0, z: 0.0))
         }
       }
       .background(GradientEffectView(viewStore.binding(get: \.gradientModel, send: PopupReducer.Action.updateGradientModel)))
@@ -136,7 +134,6 @@ public struct PopupView: View {
         viewStore.send(.flip)
       }
       .onAppear {
-//        updateColors(with: viewStore.image)
         viewStore.send(.updateGradient)
       }
     }
@@ -146,17 +143,3 @@ public struct PopupView: View {
     self.store = store
   }
 }
-
-//extension PopupView {
-//  func updateColors(with image: UIImage?) {
-//    guard let dominantColors = try? image?.dominantColorFrequencies(with: .high) else { return }
-//    let colors = dominantColors
-//      .prefix(5)
-//      .enumerated()
-//      .map { ($0.offset, $0.element.color, $0.element.frequency) }
-//
-//    withAnimation(.linear.speed(0.2)) {
-//      gradietnModel.colors = colors.map { Color(uiColor: $0.1) }
-//    }
-//  }
-//}
