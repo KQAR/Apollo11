@@ -22,14 +22,17 @@ public struct SentencePandectView: View {
           send: SentencePandect.Action.navigationPathChanged
         )
       ) {
-        List(
-          viewStore.binding(get: \.sentences, send: SentencePandect.Action.update),
-          editActions: [.delete, .move]
-        ) { sentence in
-          SentenceRowView(store: Store(initialState: sentence.wrappedValue) {
-            SentenceRow()
-          })
-            .background(NavigationLink(value: SentencePandect.State.Destination.child(sentence.wrappedValue)) {})
+        List {
+          ForEachStore(
+            self.store.scope(state: \.sentences, action: SentencePandect.Action.sentenceRow(id:action:))
+          ) { rowStore in
+            WithViewStore(rowStore, observe: { $0 }) { rowViewStore in
+              SentenceRowView(store: rowStore)
+                .background(NavigationLink(value: SentencePandect.State.Destination.child(rowViewStore.state)) {})
+            }
+          }
+          .onDelete { viewStore.send(.delete($0)) }
+          .onMove { viewStore.send(.move($0, $1)) }
         }
         .navigationDestination(
           for: SentencePandect.State.Destination.self

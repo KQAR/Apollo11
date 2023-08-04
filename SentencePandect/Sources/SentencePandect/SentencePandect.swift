@@ -24,7 +24,6 @@ public struct SentencePandect: Reducer {
     var title = "Sentences"
     var path: [Destination] = []
     var sentences: IdentifiedArrayOf<SentenceRow.State>
-    var confirmationDialog: ConfirmationDialogState<Action>?
     var popupViewIsShowing: Bool = false
     var popupViewState = PopupReducer.State()
     
@@ -32,7 +31,6 @@ public struct SentencePandect: Reducer {
   }
   
   public enum Action: Equatable {
-    case update(IdentifiedArrayOf<SentenceRow.State>)
     case navigationPathChanged([State.Destination])
     case pasteboardCheck
     case ocrScan(UIImage)
@@ -42,6 +40,9 @@ public struct SentencePandect: Reducer {
     case popupViewShow(UIImage, String)
     case paste
     case popupAction(PopupReducer.Action)
+    case sentenceRow(id: SentenceRow.State.ID, action: SentenceRow.Action)
+    case delete(IndexSet)
+    case move(IndexSet, Int)
     
     public enum Alert: Equatable {
       case paste
@@ -56,8 +57,15 @@ public struct SentencePandect: Reducer {
       switch action {
       case .popupAction:
         return .none
-      case .update(let sentences):
-        state.sentences = sentences
+      case let .delete(indexSet):
+        let removeIds = indexSet.map { state.sentences[$0].id }
+        for id in removeIds {
+          state.sentences.remove(id: id)
+        }
+        return .none
+
+      case let .move(source, destination):
+        state.sentences.move(fromOffsets: source, toOffset: destination)
         return .none
       case let .navigationPathChanged(path):
         state.path = path
