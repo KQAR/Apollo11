@@ -14,13 +14,6 @@ struct SentenceRowView: View {
   
   var body: some View {
     WithViewStore(store, observe: { $0 }) { viewStore in
-//      HStack {
-//        Text(viewStore.sentence)
-//          .fontWeight(.medium)
-//        Spacer()
-//      }
-//      .padding(15)
-//      .background(Color.yellow)
       HStack {
         RoundedRectangle(cornerRadius: 16)
           .fill(viewStore.tagColor)
@@ -34,6 +27,14 @@ struct SentenceRowView: View {
             .font(.system(size: 10))
             .lineLimit(1)
         }
+        
+        // To-do: Something Crash in this code
+//        Button(action: {
+//          viewStore.send(.delete)
+//        }) {
+//          Image(systemName: "trash")
+//            .foregroundColor(.gray)
+//        }
         
         Spacer()
       }

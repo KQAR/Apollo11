@@ -22,11 +22,16 @@ public struct SentenceRow: Reducer {
     }
   }
   
-  public enum Action: Equatable { }
+  public enum Action: Equatable {
+    case delete
+  }
   
   public var body: some Reducer<State, Action> {
     Reduce { state, action in
-      return .none
+      switch action {
+      case .delete:
+        return .none
+      }
     }
   }
   

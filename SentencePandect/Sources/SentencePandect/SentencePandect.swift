@@ -21,6 +21,7 @@ public struct SentencePandect: Reducer {
     public enum Destination: Hashable {
       case child(SentenceRow.State)
     }
+    
     var title = "Sentences"
     var path: [Destination] = []
     var sentences: IdentifiedArrayOf<SentenceRow.State>
@@ -31,6 +32,10 @@ public struct SentencePandect: Reducer {
   }
   
   public enum Action: Equatable {
+    public enum Alert: Equatable {
+      case paste
+    }
+    
     case navigationPathChanged([State.Destination])
     case pasteboardCheck
     case ocrScan(UIImage)
@@ -43,15 +48,14 @@ public struct SentencePandect: Reducer {
     case sentenceRow(id: SentenceRow.State.ID, action: SentenceRow.Action)
     case delete(IndexSet)
     case move(IndexSet, Int)
-    
-    public enum Alert: Equatable {
-      case paste
-    }
   }
   
   public var body: some Reducer<State, Action> {
     Scope(state: \.popupViewState, action: /Action.popupAction) {
       PopupReducer()
+    }
+    .forEach(\.sentences, action: /Action.sentenceRow(id:action:)) {
+      SentenceRow()
     }
     Reduce { state, action in
       switch action {
@@ -63,7 +67,6 @@ public struct SentencePandect: Reducer {
           state.sentences.remove(id: id)
         }
         return .none
-
       case let .move(source, destination):
         state.sentences.move(fromOffsets: source, toOffset: destination)
         return .none
@@ -105,6 +108,9 @@ public struct SentencePandect: Reducer {
         return .send(.popupViewHidden(true))
       case .paste:
         printLog("paste")
+        return .none
+      case let .sentenceRow(id, action):
+        printLog("sentenceRow: id: \(id) action: \(action)")
         return .none
       }
     }
