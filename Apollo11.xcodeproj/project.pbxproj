@@ -7,6 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		630C11982A9344C50007832B /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630C11972A9344C50007832B /* WidgetKit.framework */; };
+		630C119A2A9344C50007832B /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 630C11992A9344C50007832B /* SwiftUI.framework */; };
+		630C119D2A9344C50007832B /* FancyBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C119C2A9344C50007832B /* FancyBundle.swift */; };
+		630C119F2A9344C50007832B /* FancyLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C119E2A9344C50007832B /* FancyLiveActivity.swift */; };
+		630C11A12A9344C50007832B /* Fancy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630C11A02A9344C50007832B /* Fancy.swift */; };
+		630C11A42A9344C70007832B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 630C11A32A9344C70007832B /* Assets.xcassets */; };
+		630C11A62A9344C70007832B /* Fancy.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 630C11A22A9344C60007832B /* Fancy.intentdefinition */; };
+		630C11A72A9344C70007832B /* Fancy.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 630C11A22A9344C60007832B /* Fancy.intentdefinition */; };
+		630C11AA2A9344C70007832B /* FancyExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 630C11962A9344C50007832B /* FancyExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		63455B0E2A56D49500AE5CFF /* OCR in Frameworks */ = {isa = PBXBuildFile; productRef = 63455B0D2A56D49500AE5CFF /* OCR */; };
 		63455B112A56D6D200AE5CFF /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 63455B102A56D6D200AE5CFF /* Profile */; };
 		63455B142A581CF200AE5CFF /* Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 63455B132A581CF200AE5CFF /* Calendar */; };
@@ -30,7 +39,40 @@
 		63E8AC072A2998E000ED2064 /* SwiftTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 63E8AC062A2998E000ED2064 /* SwiftTheme */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		630C11A82A9344C70007832B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6349145329FBA30A0036E482 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 630C11952A9344C50007832B;
+			remoteInfo = FancyExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		630C11AB2A9344C70007832B /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				630C11AA2A9344C70007832B /* FancyExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		630C11962A9344C50007832B /* FancyExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = FancyExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		630C11972A9344C50007832B /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		630C11992A9344C50007832B /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		630C119C2A9344C50007832B /* FancyBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyBundle.swift; sourceTree = "<group>"; };
+		630C119E2A9344C50007832B /* FancyLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyLiveActivity.swift; sourceTree = "<group>"; };
+		630C11A02A9344C50007832B /* Fancy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fancy.swift; sourceTree = "<group>"; };
+		630C11A22A9344C60007832B /* Fancy.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Fancy.intentdefinition; sourceTree = "<group>"; };
+		630C11A32A9344C70007832B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		630C11A52A9344C70007832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63455B0C2A56D41D00AE5CFF /* OCR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OCR; sourceTree = "<group>"; };
 		63455B0F2A56D52300AE5CFF /* Profile */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Profile; sourceTree = "<group>"; };
 		63455B122A581C4A00AE5CFF /* Calendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Calendar; sourceTree = "<group>"; };
@@ -49,6 +91,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		630C11932A9344C50007832B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630C119A2A9344C50007832B /* SwiftUI.framework in Frameworks */,
+				630C11982A9344C50007832B /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6349145829FBA30A0036E482 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -77,6 +128,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		630C119B2A9344C50007832B /* Fancy */ = {
+			isa = PBXGroup;
+			children = (
+				630C119C2A9344C50007832B /* FancyBundle.swift */,
+				630C119E2A9344C50007832B /* FancyLiveActivity.swift */,
+				630C11A02A9344C50007832B /* Fancy.swift */,
+				630C11A22A9344C60007832B /* Fancy.intentdefinition */,
+				630C11A32A9344C70007832B /* Assets.xcassets */,
+				630C11A52A9344C70007832B /* Info.plist */,
+			);
+			path = Fancy;
+			sourceTree = "<group>";
+		};
 		6349145229FBA30A0036E482 = {
 			isa = PBXGroup;
 			children = (
@@ -91,6 +155,7 @@
 				63ABB3C22A56720B00273680 /* Debug */,
 				63ABB3C12A5671CF00273680 /* Pasteboard */,
 				6349145D29FBA30A0036E482 /* Apollo11 */,
+				630C119B2A9344C50007832B /* Fancy */,
 				6349145C29FBA30A0036E482 /* Products */,
 				63ABB3C32A56790F00273680 /* Frameworks */,
 			);
@@ -100,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				6349145B29FBA30A0036E482 /* Apollo11.app */,
+				630C11962A9344C50007832B /* FancyExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,6 +192,8 @@
 		63ABB3C32A56790F00273680 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				630C11972A9344C50007832B /* WidgetKit.framework */,
+				630C11992A9344C50007832B /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +201,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		630C11952A9344C50007832B /* FancyExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 630C11AE2A9344C70007832B /* Build configuration list for PBXNativeTarget "FancyExtension" */;
+			buildPhases = (
+				630C11922A9344C50007832B /* Sources */,
+				630C11932A9344C50007832B /* Frameworks */,
+				630C11942A9344C50007832B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FancyExtension;
+			productName = FancyExtension;
+			productReference = 630C11962A9344C50007832B /* FancyExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		6349145A29FBA30A0036E482 /* Apollo11 */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6349146A29FBA30B0036E482 /* Build configuration list for PBXNativeTarget "Apollo11" */;
@@ -140,10 +225,12 @@
 				6349145729FBA30A0036E482 /* Sources */,
 				6349145829FBA30A0036E482 /* Frameworks */,
 				6349145929FBA30A0036E482 /* Resources */,
+				630C11AB2A9344C70007832B /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				630C11A92A9344C70007832B /* PBXTargetDependency */,
 			);
 			name = Apollo11;
 			packageProductDependencies = (
@@ -180,6 +267,9 @@
 				LastSwiftUpdateCheck = 1420;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					630C11952A9344C50007832B = {
+						CreatedOnToolsVersion = 14.2;
+					};
 					6349145A29FBA30A0036E482 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -210,11 +300,20 @@
 			projectRoot = "";
 			targets = (
 				6349145A29FBA30A0036E482 /* Apollo11 */,
+				630C11952A9344C50007832B /* FancyExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		630C11942A9344C50007832B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630C11A42A9344C70007832B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6349145929FBA30A0036E482 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -227,17 +326,96 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		630C11922A9344C50007832B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				630C11A62A9344C70007832B /* Fancy.intentdefinition in Sources */,
+				630C11A12A9344C50007832B /* Fancy.swift in Sources */,
+				630C119F2A9344C50007832B /* FancyLiveActivity.swift in Sources */,
+				630C119D2A9344C50007832B /* FancyBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6349145729FBA30A0036E482 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				630C11A72A9344C70007832B /* Fancy.intentdefinition in Sources */,
 				6349145F29FBA30A0036E482 /* Apollo11App.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		630C11A92A9344C70007832B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 630C11952A9344C50007832B /* FancyExtension */;
+			targetProxy = 630C11A82A9344C70007832B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		630C11AC2A9344C70007832B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78X6FL4YJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fancy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fancy;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.person.Apollo11.Fancy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		630C11AD2A9344C70007832B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 78X6FL4YJY;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Fancy/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Fancy;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.person.Apollo11.Fancy;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		6349146829FBA30B0036E482 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -352,6 +530,7 @@
 		6349146B29FBA30B0036E482 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Apollo11/Apollo11.entitlements;
@@ -391,6 +570,7 @@
 		6349146C29FBA30B0036E482 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Apollo11/Apollo11.entitlements;
@@ -430,6 +610,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		630C11AE2A9344C70007832B /* Build configuration list for PBXNativeTarget "FancyExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				630C11AC2A9344C70007832B /* Debug */,
+				630C11AD2A9344C70007832B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		6349145629FBA30A0036E482 /* Build configuration list for PBXProject "Apollo11" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
