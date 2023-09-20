@@ -11,6 +11,7 @@ import Profile
 import Calendar
 import SentencePandect
 import ViewComponents
+import FreeToGame
 
 public struct AppView: View {
   
@@ -23,7 +24,8 @@ public struct AppView: View {
         case .home:
           SentencePandectView(store: store.scope(state: \.home, action: AppReducer.Action.home))
         case .calendar:
-          CalendarView()
+//          CalendarView()
+          FreeToGameView(store: store.scope(state: \.freeGames, action: AppReducer.Action.freeGames))
         case .setting:
           SettingView()
         }

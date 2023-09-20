@@ -8,6 +8,7 @@
 import ComposableArchitecture
 import SFSafeSymbols
 import SentencePandect
+import FreeToGame
 
 public struct AppReducer: Reducer {
   
@@ -41,19 +42,24 @@ public struct AppReducer: Reducer {
     var tab = Tab.home
     
     var home = SentencePandect.State.mock
+    var freeGames = FreeToGameReducer.State(games: [])
     
     public init() {}
   }
   
   public enum Action: BindableAction {
-   case binding(BindingAction<State>)
+    case binding(BindingAction<State>)
     
     case home(SentencePandect.Action)
+    case freeGames(FreeToGameReducer.Action)
   }
   
   public var body: some Reducer<State, Action> {
     Scope(state: \.home, action: /Action.home) {
       SentencePandect()
+    }
+    Scope(state: \.freeGames, action: /Action.freeGames) {
+      FreeToGameReducer()
     }
     BindingReducer()
     Reduce { state, action in
