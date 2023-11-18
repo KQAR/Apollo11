@@ -16,6 +16,8 @@
 		630C11A62A9344C70007832B /* Fancy.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 630C11A22A9344C60007832B /* Fancy.intentdefinition */; };
 		630C11A72A9344C70007832B /* Fancy.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 630C11A22A9344C60007832B /* Fancy.intentdefinition */; };
 		630C11AA2A9344C70007832B /* FancyExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 630C11962A9344C50007832B /* FancyExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		632E39CD2AEF996D003304B2 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 632E39CC2AEF996D003304B2 /* Clock.swift */; };
+		632E39D02AEF9D64003304B2 /* Neumorphic in Frameworks */ = {isa = PBXBuildFile; productRef = 632E39CF2AEF9D64003304B2 /* Neumorphic */; };
 		63455B0E2A56D49500AE5CFF /* OCR in Frameworks */ = {isa = PBXBuildFile; productRef = 63455B0D2A56D49500AE5CFF /* OCR */; };
 		63455B112A56D6D200AE5CFF /* Profile in Frameworks */ = {isa = PBXBuildFile; productRef = 63455B102A56D6D200AE5CFF /* Profile */; };
 		63455B142A581CF200AE5CFF /* Calendar in Frameworks */ = {isa = PBXBuildFile; productRef = 63455B132A581CF200AE5CFF /* Calendar */; };
@@ -75,6 +77,7 @@
 		630C11A22A9344C60007832B /* Fancy.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Fancy.intentdefinition; sourceTree = "<group>"; };
 		630C11A32A9344C70007832B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		630C11A52A9344C70007832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		632E39CC2AEF996D003304B2 /* Clock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Clock.swift; sourceTree = "<group>"; };
 		63455B0C2A56D41D00AE5CFF /* OCR */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = OCR; sourceTree = "<group>"; };
 		63455B0F2A56D52300AE5CFF /* Profile */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Profile; sourceTree = "<group>"; };
 		63455B122A581C4A00AE5CFF /* Calendar */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = Calendar; sourceTree = "<group>"; };
@@ -100,6 +103,7 @@
 			files = (
 				630C119A2A9344C50007832B /* SwiftUI.framework in Frameworks */,
 				630C11982A9344C50007832B /* WidgetKit.framework in Frameworks */,
+				632E39D02AEF9D64003304B2 /* Neumorphic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +146,7 @@
 				630C11A22A9344C60007832B /* Fancy.intentdefinition */,
 				630C11A32A9344C70007832B /* Assets.xcassets */,
 				630C11A52A9344C70007832B /* Info.plist */,
+				632E39CC2AEF996D003304B2 /* Clock.swift */,
 			);
 			path = Fancy;
 			sourceTree = "<group>";
@@ -220,6 +225,9 @@
 			dependencies = (
 			);
 			name = FancyExtension;
+			packageProductDependencies = (
+				632E39CF2AEF9D64003304B2 /* Neumorphic */,
+			);
 			productName = FancyExtension;
 			productReference = 630C11962A9344C50007832B /* FancyExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
@@ -304,6 +312,7 @@
 				634D08642A7B863F00526F4D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
 				635C15882AB833E4000C1AF0 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				635C158B2AB860DE000C1AF0 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				632E39CE2AEF9B7B003304B2 /* XCRemoteSwiftPackageReference "neumorphic" */,
 			);
 			productRefGroup = 6349145C29FBA30A0036E482 /* Products */;
 			projectDirPath = "";
@@ -344,6 +353,7 @@
 				630C11A12A9344C50007832B /* Fancy.swift in Sources */,
 				630C119F2A9344C50007832B /* FancyLiveActivity.swift in Sources */,
 				630C119D2A9344C50007832B /* FancyBundle.swift in Sources */,
+				632E39CD2AEF996D003304B2 /* Clock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -650,6 +660,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		632E39CE2AEF9B7B003304B2 /* XCRemoteSwiftPackageReference "neumorphic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/costachung/neumorphic.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
@@ -695,7 +713,7 @@
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.2.0;
+				minimumVersion = 1.4.0;
 			};
 		};
 		635C15882AB833E4000C1AF0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
@@ -741,6 +759,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		632E39CF2AEF9D64003304B2 /* Neumorphic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 632E39CE2AEF9B7B003304B2 /* XCRemoteSwiftPackageReference "neumorphic" */;
+			productName = Neumorphic;
+		};
 		63455B0D2A56D49500AE5CFF /* OCR */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = OCR;

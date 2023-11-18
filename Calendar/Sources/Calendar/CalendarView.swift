@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Foundation
+import Neumorphic
 //import ElegantCalendar
 
 public struct CalendarView: View {
@@ -20,7 +21,14 @@ public struct CalendarView: View {
   
   public var body: some View {
 //    ElegantCalendarView(calendarManager: calendarManager)
-    Text("CalendarView")
+    ZStack {
+      Color.white
+      RoundedRectangle(cornerRadius: 20)
+        .fill(Color.Neumorphic.main)
+        .frame(width: 120, height: 120)
+        .softOuterShadow()
+      Text("CalendarView")
+    }
   }
   
   public init() {}

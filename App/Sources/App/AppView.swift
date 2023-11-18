@@ -27,7 +27,8 @@ public struct AppView: View {
 //          CalendarView()
           FreeToGameView(store: store.scope(state: \.freeGames, action: AppReducer.Action.freeGames))
         case .setting:
-          SettingView()
+//          SettingView()
+          CalendarView()
         }
       }
     }
