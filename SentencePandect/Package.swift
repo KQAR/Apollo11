@@ -20,8 +20,8 @@ let package = Package(
     .package(path: "Sources/Pasteboard"),
     .package(path: "Sources/Extensions"),
     .package(path: "Sources/Popup"),
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.0.0"),
-    .package(url: "https://github.com/exyte/PopupView.git", from: "2.0.0"),
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.4.2"),
+    .package(url: "https://github.com/exyte/PopupView.git", exact: "2.4.2"),
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -34,11 +34,16 @@ let package = Package(
         "Pasteboard",
         "Extensions",
         "Popup",
-        .product(name: "PopupView", package: "PopupView"),
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+        .PopupView,
+        .TCA,
       ]),
     .testTarget(
       name: "SentencePandectTests",
       dependencies: ["SentencePandect"]),
   ]
 )
+
+extension Target.Dependency {
+  static let PopupView = Self.product(name: "PopupView", package: "PopupView")
+  static let TCA = Self.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+}

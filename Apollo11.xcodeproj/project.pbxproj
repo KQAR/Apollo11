@@ -29,12 +29,10 @@
 		634CF03D2A0A475C0011D991 /* Introspect in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF03C2A0A475C0011D991 /* Introspect */; };
 		634CF0402A0A5BBD0011D991 /* Colorful in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF03F2A0A5BBD0011D991 /* Colorful */; };
 		634CF0432A0B3A120011D991 /* Setting in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0422A0B3A120011D991 /* Setting */; };
-		634CF0462A0B76B70011D991 /* ElegantCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0452A0B76B70011D991 /* ElegantCalendar */; };
 		634CF0492A0B7E240011D991 /* SFSafeSymbols in Frameworks */ = {isa = PBXBuildFile; productRef = 634CF0482A0B7E240011D991 /* SFSafeSymbols */; };
 		634D08662A7B863F00526F4D /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = 634D08652A7B863F00526F4D /* ComposableArchitecture */; };
 		635C158A2AB834A7000C1AF0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 635C15892AB834A7000C1AF0 /* Alamofire */; };
 		635C158D2AB860FD000C1AF0 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 635C158C2AB860FD000C1AF0 /* Kingfisher */; };
-		636A681D2A5BF87500F38251 /* ViewComponents in Frameworks */ = {isa = PBXBuildFile; productRef = 636A681C2A5BF87500F38251 /* ViewComponents */; };
 		636A68202A5BFE0B00F38251 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 636A681F2A5BFE0B00F38251 /* App */; };
 		63873F782A20C226002F89B0 /* PopupView in Frameworks */ = {isa = PBXBuildFile; productRef = 63873F772A20C226002F89B0 /* PopupView */; };
 		63873F7D2A249FA0002F89B0 /* ColorKit in Frameworks */ = {isa = PBXBuildFile; productRef = 63873F7C2A249FA0002F89B0 /* ColorKit */; };
@@ -123,12 +121,10 @@
 				63455B172A581DA100AE5CFF /* SentencePandect in Frameworks */,
 				63455B0E2A56D49500AE5CFF /* OCR in Frameworks */,
 				63873F782A20C226002F89B0 /* PopupView in Frameworks */,
-				636A681D2A5BF87500F38251 /* ViewComponents in Frameworks */,
 				63455B1D2A58224000AE5CFF /* Popup in Frameworks */,
 				634CF0432A0B3A120011D991 /* Setting in Frameworks */,
 				634CF03D2A0A475C0011D991 /* Introspect in Frameworks */,
 				63E8AC072A2998E000ED2064 /* SwiftTheme in Frameworks */,
-				634CF0462A0B76B70011D991 /* ElegantCalendar in Frameworks */,
 				634CF0402A0A5BBD0011D991 /* Colorful in Frameworks */,
 				63873F7D2A249FA0002F89B0 /* ColorKit in Frameworks */,
 			);
@@ -251,7 +247,6 @@
 				634CF03C2A0A475C0011D991 /* Introspect */,
 				634CF03F2A0A5BBD0011D991 /* Colorful */,
 				634CF0422A0B3A120011D991 /* Setting */,
-				634CF0452A0B76B70011D991 /* ElegantCalendar */,
 				634CF0482A0B7E240011D991 /* SFSafeSymbols */,
 				63873F772A20C226002F89B0 /* PopupView */,
 				63873F7C2A249FA0002F89B0 /* ColorKit */,
@@ -263,7 +258,6 @@
 				63455B132A581CF200AE5CFF /* Calendar */,
 				63455B162A581DA100AE5CFF /* SentencePandect */,
 				63455B1C2A58224000AE5CFF /* Popup */,
-				636A681C2A5BF87500F38251 /* ViewComponents */,
 				636A681F2A5BFE0B00F38251 /* App */,
 				634D08652A7B863F00526F4D /* ComposableArchitecture */,
 				635C15892AB834A7000C1AF0 /* Alamofire */,
@@ -304,7 +298,6 @@
 				634CF03B2A0A475C0011D991 /* XCRemoteSwiftPackageReference "SwiftUI-Introspect" */,
 				634CF03E2A0A5BBD0011D991 /* XCRemoteSwiftPackageReference "Colorful" */,
 				634CF0412A0B3A120011D991 /* XCRemoteSwiftPackageReference "Setting" */,
-				634CF0442A0B76B70011D991 /* XCRemoteSwiftPackageReference "ElegantCalendar" */,
 				634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */,
 				63873F762A20C226002F89B0 /* XCRemoteSwiftPackageReference "PopupView" */,
 				63873F7B2A249FA0002F89B0 /* XCRemoteSwiftPackageReference "ColorKit" */,
@@ -672,88 +665,80 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/siteline/SwiftUI-Introspect.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.2.3;
+				kind = exactVersion;
+				version = 0.2.3;
 			};
 		};
 		634CF03E2A0A5BBD0011D991 /* XCRemoteSwiftPackageReference "Colorful" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Lakr233/Colorful.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 1.1.0;
 			};
 		};
 		634CF0412A0B3A120011D991 /* XCRemoteSwiftPackageReference "Setting" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/aheze/Setting.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-		634CF0442A0B76B70011D991 /* XCRemoteSwiftPackageReference "ElegantCalendar" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/ThasianX/ElegantCalendar.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				kind = exactVersion;
+				version = 1.0.1;
 			};
 		};
 		634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SFSafeSymbols/SFSafeSymbols.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 4.0.0;
+				kind = exactVersion;
+				version = 4.1.1;
 			};
 		};
 		634D08642A7B863F00526F4D /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.0;
+				kind = exactVersion;
+				version = 1.4.2;
 			};
 		};
 		635C15882AB833E4000C1AF0 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.8.0;
+				kind = exactVersion;
+				version = 5.8.0;
 			};
 		};
 		635C158B2AB860DE000C1AF0 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 7.9.1;
+				kind = exactVersion;
+				version = 7.10.0;
 			};
 		};
 		63873F762A20C226002F89B0 /* XCRemoteSwiftPackageReference "PopupView" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/exyte/PopupView.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
+				kind = exactVersion;
+				version = 2.4.2;
 			};
 		};
 		63873F7B2A249FA0002F89B0 /* XCRemoteSwiftPackageReference "ColorKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Boris-Em/ColorKit.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
+				kind = exactVersion;
+				version = 1.0.0;
 			};
 		};
 		63E8AC052A2998E000ED2064 /* XCRemoteSwiftPackageReference "SwiftTheme" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/wxxsw/SwiftTheme.git";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.6.4;
+				kind = exactVersion;
+				version = 0.6.4;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -799,11 +784,6 @@
 			package = 634CF0412A0B3A120011D991 /* XCRemoteSwiftPackageReference "Setting" */;
 			productName = Setting;
 		};
-		634CF0452A0B76B70011D991 /* ElegantCalendar */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 634CF0442A0B76B70011D991 /* XCRemoteSwiftPackageReference "ElegantCalendar" */;
-			productName = ElegantCalendar;
-		};
 		634CF0482A0B7E240011D991 /* SFSafeSymbols */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 634CF0472A0B7E240011D991 /* XCRemoteSwiftPackageReference "SFSafeSymbols" */;
@@ -823,10 +803,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 635C158B2AB860DE000C1AF0 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
-		};
-		636A681C2A5BF87500F38251 /* ViewComponents */ = {
-			isa = XCSwiftPackageProductDependency;
-			productName = ViewComponents;
 		};
 		636A681F2A5BFE0B00F38251 /* App */ = {
 			isa = XCSwiftPackageProductDependency;

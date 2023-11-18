@@ -13,8 +13,8 @@ let package = Package(
             targets: ["FreeToGame"]),
     ],
     dependencies: [
-      .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.9.1"),
-      .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.0.0"),
+      .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "7.10.0"),
+      .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.4.2"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,11 +22,16 @@ let package = Package(
         .target(
             name: "FreeToGame",
             dependencies: [
-              .product(name: "Kingfisher", package: "Kingfisher"),
-              .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+              .Kingfisher,
+              .TCA,
             ]),
         .testTarget(
             name: "FreeToGameTests",
             dependencies: ["FreeToGame"]),
     ]
 )
+
+extension Target.Dependency {
+  static let Kingfisher = Self.product(name: "Kingfisher", package: "Kingfisher")
+  static let TCA = Self.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+}

@@ -20,8 +20,8 @@ let package = Package(
       .package(path: "Sources/ViewComponents"),
       .package(path: "Sources/SentencePandect"),
       .package(path: "Sources/FreeToGame"),
-      .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", from: "4.0.0"),
-      .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.0.0"),
+      .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", exact: "4.1.1"),
+      .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.4.2"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -34,11 +34,16 @@ let package = Package(
                 "ViewComponents",
                 "SentencePandect",
                 "FreeToGame",
-                .product(name: "SFSafeSymbols", package: "SFSafeSymbols"),
-                .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+                .SFSafeSymbols,
+                .TCA,
             ]),
         .testTarget(
             name: "AppTests",
             dependencies: ["App"]),
     ]
 )
+
+extension Target.Dependency {
+  static let SFSafeSymbols = Self.product(name: "SFSafeSymbols", package: "SFSafeSymbols")
+  static let TCA = Self.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+}

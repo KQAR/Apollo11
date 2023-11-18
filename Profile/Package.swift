@@ -15,8 +15,8 @@ let package = Package(
     dependencies: [
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
-      .package(url: "https://github.com/aheze/Setting.git", from: "1.0.0"),
-      .package(url: "https://github.com/Lakr233/Colorful.git", from: "1.0.0")
+      .package(url: "https://github.com/aheze/Setting.git", exact: "1.0.1"),
+      .package(url: "https://github.com/Lakr233/Colorful.git",exact: "1.1.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -24,11 +24,16 @@ let package = Package(
         .target(
             name: "Profile",
             dependencies: [
-              .product(name: "Setting", package: "Setting"),
-              .product(name: "Colorful", package: "Colorful")
+              .Setting,
+              .Colorful
             ]),
         .testTarget(
             name: "ProfileTests",
             dependencies: ["Profile"]),
     ]
 )
+
+extension Target.Dependency {
+  static let Setting = Self.product(name: "Setting", package: "Setting")
+  static let Colorful = Self.product(name: "Colorful", package: "Colorful")
+}

@@ -17,8 +17,8 @@ let package = Package(
     // .package(url: /* package url */, from: "1.0.0"),
     .package(path: "Sources/Debug"),
     .package(path: "Sources/Pasteboard"),
-    .package(url: "https://github.com/Boris-Em/ColorKit.git", from: "1.0.0"),
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.0.0")
+    .package(url: "https://github.com/Boris-Em/ColorKit.git", exact: "1.0.0"),
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.4.2")
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -28,8 +28,8 @@ let package = Package(
       dependencies: [
         "Debug",
         "Pasteboard",
-        .product(name: "ColorKit", package: "ColorKit"),
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture"),
+        .ColorKit,
+        .TCA,
       ]
     ),
     .testTarget(
@@ -37,3 +37,8 @@ let package = Package(
       dependencies: ["Popup"]),
   ]
 )
+
+extension Target.Dependency {
+  static let ColorKit = Self.product(name: "ColorKit", package: "ColorKit")
+  static let TCA = Self.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+}

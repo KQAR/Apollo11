@@ -14,7 +14,7 @@ let package = Package(
     // Dependencies declare other packages that this package depends on.
     // .package(url: /* package url */, from: "1.0.0"),
     .package(path: "Sources/Debug"),
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", from: "1.0.0")
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.4.2")
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -23,7 +23,7 @@ let package = Package(
       name: "Pasteboard",
       dependencies: [
         "Debug",
-        .product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+        .TCA
       ]
     ),
     .testTarget(
@@ -32,3 +32,7 @@ let package = Package(
     ),
   ]
 )
+
+extension Target.Dependency {
+  static let TCA = Self.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+}

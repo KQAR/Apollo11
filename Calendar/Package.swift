@@ -23,9 +23,13 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
             name: "Calendar",
-            dependencies: [.product(name: "Neumorphic", package: "Neumorphic"),]),
+            dependencies: [.Neumorphic,]),
         .testTarget(
             name: "CalendarTests",
             dependencies: ["Calendar"]),
     ]
 )
+
+extension Target.Dependency {
+  static let Neumorphic = Self.product(name: "Neumorphic", package: "Neumorphic")
+}
