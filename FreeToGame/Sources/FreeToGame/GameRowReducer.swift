@@ -12,6 +12,7 @@ import Kingfisher
 @Reducer
 public struct GameRowReducer {
   
+  @ObservableState
   public struct State: Equatable, Identifiable {
     public let id: UUID
     let game: FreeGame
@@ -29,16 +30,16 @@ struct GameRowView: View {
   let store: StoreOf<GameRowReducer>
   
   var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
+    WithPerceptionTracking {
       HStack {
-        KFImage(URL(string: viewStore.game.thumbnail))
+        KFImage(URL(string: store.game.thumbnail))
           .resizable()
           .frame(width: 90, height: 70)
           .scaledToFit()
         VStack(alignment: .leading) {
-          Text(viewStore.game.short_description)
+          Text(store.game.short_description)
             .font(.system(size: 16))
-          Text(viewStore.game.publisher)
+          Text(store.game.publisher)
             .font(.system(size: 10))
             .lineLimit(1)
         }

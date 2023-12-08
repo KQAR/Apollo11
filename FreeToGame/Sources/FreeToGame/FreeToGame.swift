@@ -7,6 +7,8 @@ import ComposableArchitecture
 
 @Reducer
 public struct FreeToGameReducer {
+  
+  @ObservableState
   public struct State {
     var games: IdentifiedArrayOf<GameRowReducer.State>
     var gridItems: [GridItem]

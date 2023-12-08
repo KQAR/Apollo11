@@ -13,6 +13,7 @@ import Extensions
 @Reducer
 public struct SentenceRow {
   
+  @ObservableState
   public struct State: Hashable, Identifiable {
     public let id: UUID
     public let tagColor: Color

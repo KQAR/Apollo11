@@ -18,18 +18,19 @@ public struct SentencePandect {
   
   @Dependency(\.pasteboardMaster) var pasteboardMaster
   
-  public struct State: Equatable {
-    public enum Destination: Hashable {
-      case child(SentenceRow.State)
-    }
-    
+  @ObservableState
+  public struct State {
     var title = "Sentences"
-    var path: [Destination] = []
+    var path: StackState<SentenceRow.State> = StackState()
     var sentences: IdentifiedArrayOf<SentenceRow.State>
     var popupViewIsShowing: Bool = false
     var popupViewState = PopupReducer.State()
     
-    @PresentationState var alert: AlertState<Action.Alert>?
+    @Presents var alert: AlertState<Action.Alert>?
+    
+    public init(sentences: IdentifiedArrayOf<SentenceRow.State>) {
+      self.sentences = sentences
+    }
   }
   
   public enum Action {
@@ -37,7 +38,7 @@ public struct SentencePandect {
       case paste
     }
     
-    case navigationPathChanged([State.Destination])
+    case path(StackAction<SentenceRow.State, SentenceRow.Action>)
     case pasteboardCheck
     case ocrScan(UIImage)
     case alertShowing(String)
@@ -58,9 +59,25 @@ public struct SentencePandect {
     .forEach(\.sentences, action: \.sentenceRow) {
       SentenceRow()
     }
+    .forEach(\.path, action: \.path) {
+      SentenceRow()
+    }
     Reduce { state, action in
       switch action {
       case .popupAction:
+        return .none
+      case let .path(.element(id, action)):
+        printLog("path id ==> \(id)")
+        switch action {
+        case .delete:
+          printLog("path page Action: -> delete")
+        }
+        return .none
+      case let .path(.popFrom(id)):
+        printLog("path popFrom <= id: \(id)")
+        return .none
+      case let .path(.push(id, state)):
+        printLog("path push => id:\(id), state:\(state.id)")
         return .none
       case let .delete(indexSet):
         let removeIds = indexSet.map { state.sentences[$0].id }
@@ -70,9 +87,6 @@ public struct SentencePandect {
         return .none
       case let .move(source, destination):
         state.sentences.move(fromOffsets: source, toOffset: destination)
-        return .none
-      case let .navigationPathChanged(path):
-        state.path = path
         return .none
       case .pasteboardCheck:
         guard let pasteboardItem = pasteboardMaster.recentlyPasteboardItem() else {

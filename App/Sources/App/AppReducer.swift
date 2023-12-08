@@ -13,7 +13,7 @@ import FreeToGame
 @Reducer
 public struct AppReducer {
   
-  enum Tab: String, CaseIterable {
+  public enum Tab: String, CaseIterable {
     case home
     case calendar
     case setting
@@ -38,8 +38,8 @@ public struct AppReducer {
     }
   }
   
+  @ObservableState
   public struct State {
-    @BindingState
     var tab = Tab.home
     
     var home = SentencePandect.State.mock

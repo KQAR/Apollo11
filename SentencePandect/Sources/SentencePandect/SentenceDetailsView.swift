@@ -13,8 +13,8 @@ public struct SentenceDetailsView: View {
   let store: StoreOf<SentenceRow>
   
   public var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
-      Text(viewStore.sentence)
+    WithPerceptionTracking {
+      Text(store.sentence)
     }
   }
   

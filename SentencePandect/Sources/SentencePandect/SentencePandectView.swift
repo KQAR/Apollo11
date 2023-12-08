@@ -12,58 +12,36 @@ import Popup
 
 public struct SentencePandectView: View {
   
-  let store: StoreOf<SentencePandect>
+  @BindableStore var store: StoreOf<SentencePandect>
   
   public var body: some View {
-    WithViewStore(store, observe: { $0 }) { viewStore in
-      NavigationStack(
-        path: viewStore.binding(
-          get: \.path,
-          send: SentencePandect.Action.navigationPathChanged
-        )
-      ) {
+    WithPerceptionTracking {
+      NavigationStack(path: $store.scope(state: \.path, action: \.path)) {
         List {
-          ForEachStore(
-            self.store.scope(state: \.sentences, action: \.sentenceRow)
-          ) { rowStore in
-            WithViewStore(rowStore, observe: { $0 }) { rowViewStore in
+          ForEach(store.scope(state: \.sentences, action: \.sentenceRow)) { rowStore in
+            NavigationLink(state: rowStore.state) {
               SentenceRowView(store: rowStore)
-                .background(NavigationLink(value: SentencePandect.State.Destination.child(rowViewStore.state)) {})
             }
           }
-          .onDelete { viewStore.send(.delete($0)) }
-          .onMove { viewStore.send(.move($0, $1)) }
+          .onDelete { store.send(.delete($0)) }
+          .onMove { store.send(.move($0, $1)) }
         }
-        .navigationDestination(
-          for: SentencePandect.State.Destination.self
-        ) { destination in
-          switch destination {
-          case let .child(sentence):
-            SentenceDetailsView(
-              store: Store(initialState: sentence) {
-                SentenceRow()
-              }
-            )
-          }
-        }
-        .navigationTitle(viewStore.title)
+        .navigationTitle(store.title)
         .safeAreaInset(edge: .bottom) {
           Spacer()
             .frame(maxHeight: 66)
         }
+      } destination: { store in
+        SentenceDetailsView(store: store)
       }
-      .alert(store: self.store.scope(state: \.$alert, action: \.alert))
-      .popup(isPresented: viewStore.binding(
-        get: \.popupViewIsShowing,
-        send: SentencePandect.Action.popupViewHidden)
-      ) {
-        PopupView(store: self.store.scope(state: \.popupViewState, action: \.popupAction))
+      .alert(store: store.scope(state: \.$alert, action: \.alert))
+      .popup(isPresented: $store.popupViewIsShowing.sending(\.popupViewHidden)) {
+        PopupView(store: store.scope(state: \.popupViewState, action: \.popupAction))
       } customize: {
-        $0.type(.default)
-          .animation(.spring())
+        $0.type(.default).animation(.spring())
       }
       .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
-        viewStore.send(.pasteboardCheck)
+        store.send(.pasteboardCheck)
       }
     }
   }

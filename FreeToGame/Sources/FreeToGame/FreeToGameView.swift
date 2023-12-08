@@ -14,10 +14,10 @@ public struct FreeToGameView: View {
   
   public var body: some View {
     List {
-      ForEachStore(
-        self.store.scope(state: \.games, action: \.row)
-      ) { rowStore in
-        GameRowView(store: rowStore)
+      WithPerceptionTracking {
+        ForEach(store.scope(state: \.games, action: \.row)) { rowStore in
+          GameRowView(store: rowStore)
+        }
       }
     }
     .onAppear {
