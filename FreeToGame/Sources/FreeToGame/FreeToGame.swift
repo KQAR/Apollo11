@@ -5,41 +5,8 @@ import SwiftUI
 import Debug
 import ComposableArchitecture
 
-public struct FreeToGameView: View {
-  
-  let store: StoreOf<FreeToGameReducer>
-  
-  public var body: some View {
-    List {
-      ForEachStore(
-        self.store.scope(state: \.games, action: FreeToGameReducer.Action.row(id:action:))
-      ) { rowStore in
-        GameRowView(store: rowStore)
-      }
-    }
-    .onAppear {
-      self.store.send(.refresh)
-    }
-//    ScrollView {
-//      LazyVGrid(columns: store.withState(\.gridItems), spacing: 20) {
-//        ForEachStore(
-//          self.store.scope(state: \.games, action: FreeToGameReducer.Action.row(id:action:))
-//        ) { rowStore in
-//          GameRowView(store: rowStore)
-//        }
-//      }
-//    }
-//    .onAppear {
-//      self.store.send(.refresh)
-//    }
-  }
-  
-  public init(store: StoreOf<FreeToGameReducer>) {
-    self.store = store
-  }
-}
-
-public struct FreeToGameReducer: Reducer {
+@Reducer
+public struct FreeToGameReducer {
   public struct State {
     var games: IdentifiedArrayOf<GameRowReducer.State>
     var gridItems: [GridItem]
@@ -56,7 +23,7 @@ public struct FreeToGameReducer: Reducer {
     case refresh
     case set([FreeGame])
     case show(error: String?)
-    case row(id: GameRowReducer.State.ID, action: GameRowReducer.Action)
+    case row(IdentifiedActionOf<GameRowReducer>)
   }
   
   let network = FreeToGameApi.shared
@@ -81,9 +48,11 @@ public struct FreeToGameReducer: Reducer {
       case let .show(error):
         state.error = error
         return .none
+      case .row:
+        return .none
       }
     }
-    .forEach(\.games, action: /Action.row(id:action:)) {
+    .forEach(\.games, action: \.row) {
       GameRowReducer()
     }
   }

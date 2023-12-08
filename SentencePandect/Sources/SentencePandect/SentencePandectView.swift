@@ -24,7 +24,7 @@ public struct SentencePandectView: View {
       ) {
         List {
           ForEachStore(
-            self.store.scope(state: \.sentences, action: SentencePandect.Action.sentenceRow(id:action:))
+            self.store.scope(state: \.sentences, action: \.sentenceRow)
           ) { rowStore in
             WithViewStore(rowStore, observe: { $0 }) { rowViewStore in
               SentenceRowView(store: rowStore)
@@ -52,12 +52,12 @@ public struct SentencePandectView: View {
             .frame(maxHeight: 66)
         }
       }
-      .alert(store: self.store.scope(state: \.$alert, action: { .alert($0) }))
+      .alert(store: self.store.scope(state: \.$alert, action: \.alert))
       .popup(isPresented: viewStore.binding(
         get: \.popupViewIsShowing,
         send: SentencePandect.Action.popupViewHidden)
       ) {
-        PopupView(store: self.store.scope(state: \.popupViewState, action: SentencePandect.Action.popupAction))
+        PopupView(store: self.store.scope(state: \.popupViewState, action: \.popupAction))
       } customize: {
         $0.type(.default)
           .animation(.spring())

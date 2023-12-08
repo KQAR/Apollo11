@@ -11,7 +11,8 @@ import ColorKit
 import Debug
 import Pasteboard
 
-public struct PopupReducer: Reducer {
+@Reducer
+public struct PopupReducer {
   
   @Dependency(\.pasteboardMaster) var pasteboardMaster
   

@@ -10,7 +10,8 @@ import Foundation
 import ComposableArchitecture
 import Extensions
 
-public struct SentenceRow: Reducer {
+@Reducer
+public struct SentenceRow {
   
   public struct State: Hashable, Identifiable {
     public let id: UUID
@@ -22,7 +23,7 @@ public struct SentenceRow: Reducer {
     }
   }
   
-  public enum Action: Equatable {
+  public enum Action {
     case delete
   }
   
@@ -36,10 +37,4 @@ public struct SentenceRow: Reducer {
   }
   
   public init() {}
-}
-
-extension SentenceRow.State {
-  static var mock: Self {
-    return Self(id: UUID(), tagColor: .blue, sentence: "Hello World", time: Date())
-  }
 }

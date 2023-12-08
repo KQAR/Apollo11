@@ -22,12 +22,10 @@ public struct AppView: View {
       WithViewStore(store, observe: \.tab) { viewStore in
         switch viewStore.state {
         case .home:
-          SentencePandectView(store: store.scope(state: \.home, action: AppReducer.Action.home))
+          SentencePandectView(store: store.scope(state: \.home, action: \.home))
         case .calendar:
-//          CalendarView()
-          FreeToGameView(store: store.scope(state: \.freeGames, action: AppReducer.Action.freeGames))
+          FreeToGameView(store: store.scope(state: \.freeGames, action: \.freeGames))
         case .setting:
-//          SettingView()
           CalendarView()
         }
       }

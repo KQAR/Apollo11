@@ -10,7 +10,8 @@ import SFSafeSymbols
 import SentencePandect
 import FreeToGame
 
-public struct AppReducer: Reducer {
+@Reducer
+public struct AppReducer {
   
   enum Tab: String, CaseIterable {
     case home

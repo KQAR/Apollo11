@@ -13,7 +13,8 @@ import Debug
 import OCR
 import Popup
 
-public struct SentencePandect: Reducer {
+@Reducer
+public struct SentencePandect {
   
   @Dependency(\.pasteboardMaster) var pasteboardMaster
   
@@ -31,8 +32,8 @@ public struct SentencePandect: Reducer {
     @PresentationState var alert: AlertState<Action.Alert>?
   }
   
-  public enum Action: Equatable {
-    public enum Alert: Equatable {
+  public enum Action {
+    public enum Alert {
       case paste
     }
     
@@ -45,16 +46,16 @@ public struct SentencePandect: Reducer {
     case popupViewShow(UIImage, String)
     case paste
     case popupAction(PopupReducer.Action)
-    case sentenceRow(id: SentenceRow.State.ID, action: SentenceRow.Action)
+    case sentenceRow(IdentifiedActionOf<SentenceRow>)
     case delete(IndexSet)
     case move(IndexSet, Int)
   }
   
   public var body: some Reducer<State, Action> {
-    Scope(state: \.popupViewState, action: /Action.popupAction) {
+    Scope(state: \.popupViewState, action: \.popupAction) {
       PopupReducer()
     }
-    .forEach(\.sentences, action: /Action.sentenceRow(id:action:)) {
+    .forEach(\.sentences, action: \.sentenceRow) {
       SentenceRow()
     }
     Reduce { state, action in
@@ -109,8 +110,10 @@ public struct SentencePandect: Reducer {
       case .paste:
         printLog("paste")
         return .none
-      case let .sentenceRow(id, action):
-        printLog("sentenceRow: id: \(id) action: \(action)")
+      case let .sentenceRow(row):
+        if case let .element(id, action) = row {
+          printLog("sentenceRow: id: \(id) action: \(action)")
+        }
         return .none
       }
     }
@@ -132,102 +135,4 @@ public struct SentencePandect: Reducer {
       return TextState(text)
     }
   }
-}
-
-public extension SentencePandect.State {
-  static let mock = Self(
-    sentences: IdentifiedArrayOf(uniqueElements: [
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .cyan,
-        sentence: "Learning how to query loaded code is essential for learning how to create breakpoints on that code. ",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .purple,
-        sentence: "Both Objective-C and Swift have specific property signatures when they’re created by the compiler, which results in different querying strategies when looking for code.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .cyan,
-        sentence: "Learning how to query loaded code is essential for learning how to create breakpoints on that code. ",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .purple,
-        sentence: "Both Objective-C and Swift have specific property signatures when they’re created by the compiler, which results in different querying strategies when looking for code.",
-        time: Date()
-      ),
-      SentenceRow.State(
-        id: UUID(),
-        tagColor: .orange,
-        sentence: "You’ll get output similar to the previous command, this time showing the implementation address and of the setter’s declaration for name.",
-        time: Date()
-      )
-    ])
-  )
-  
 }

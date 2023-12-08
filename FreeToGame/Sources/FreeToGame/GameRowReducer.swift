@@ -9,7 +9,8 @@ import SwiftUI
 import ComposableArchitecture
 import Kingfisher
 
-public struct GameRowReducer: Reducer {
+@Reducer
+public struct GameRowReducer {
   
   public struct State: Equatable, Identifiable {
     public let id: UUID
