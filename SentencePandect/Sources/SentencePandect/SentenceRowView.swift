@@ -27,15 +27,6 @@ struct SentenceRowView: View {
             .font(.system(size: 10))
             .lineLimit(1)
         }
-        
-        // To-do: Something Crash in this code
-//        Button(action: {
-//          viewStore.send(.delete)
-//        }) {
-//          Image(systemName: "trash")
-//            .foregroundColor(.gray)
-//        }
-        
         Spacer()
       }
       .frame(height: 30)

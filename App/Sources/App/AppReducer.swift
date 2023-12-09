@@ -56,10 +56,10 @@ public struct AppReducer {
   }
   
   public var body: some Reducer<State, Action> {
-    Scope(state: \.home, action: /Action.home) {
+    Scope(state: \.home, action: \.home) {
       SentencePandect()
     }
-    Scope(state: \.freeGames, action: /Action.freeGames) {
+    Scope(state: \.freeGames, action: \.freeGames) {
       FreeToGameReducer()
     }
     BindingReducer()

@@ -51,12 +51,10 @@ public struct SentencePandectView: View {
   }
 }
 
-struct SentencePandectView_Previews: PreviewProvider {
-  static var previews: some View {
-    SentencePandectView(
-      store: Store(initialState: .mock) {
-        SentencePandect()
-      }
-    )
-  }
+#Preview {
+  SentencePandectView(
+    store: Store(initialState: .mock) {
+      SentencePandect()
+    }
+  )
 }

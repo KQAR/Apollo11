@@ -39,6 +39,7 @@
 		63ABB3C52A56790F00273680 /* Debug in Frameworks */ = {isa = PBXBuildFile; productRef = 63ABB3C42A56790F00273680 /* Debug */; };
 		63ABB3C72A56791400273680 /* Pasteboard in Frameworks */ = {isa = PBXBuildFile; productRef = 63ABB3C62A56791400273680 /* Pasteboard */; };
 		63E8AC072A2998E000ED2064 /* SwiftTheme in Frameworks */ = {isa = PBXBuildFile; productRef = 63E8AC062A2998E000ED2064 /* SwiftTheme */; };
+		D53B6CAB2B24315E00B5F5F6 /* FreeToGame in Frameworks */ = {isa = PBXBuildFile; productRef = D53B6CAA2B24315E00B5F5F6 /* FreeToGame */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +111,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				636A68202A5BFE0B00F38251 /* App in Frameworks */,
+				D53B6CAB2B24315E00B5F5F6 /* FreeToGame in Frameworks */,
 				63ABB3C72A56791400273680 /* Pasteboard in Frameworks */,
 				634D08662A7B863F00526F4D /* ComposableArchitecture in Frameworks */,
 				635C158A2AB834A7000C1AF0 /* Alamofire in Frameworks */,
@@ -262,6 +264,7 @@
 				634D08652A7B863F00526F4D /* ComposableArchitecture */,
 				635C15892AB834A7000C1AF0 /* Alamofire */,
 				635C158C2AB860FD000C1AF0 /* Kingfisher */,
+				D53B6CAA2B24315E00B5F5F6 /* FreeToGame */,
 			);
 			productName = Apollo11;
 			productReference = 6349145B29FBA30A0036E482 /* Apollo11.app */;
@@ -574,6 +577,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.person.Apollo11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -614,6 +618,7 @@
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.person.Apollo11;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
@@ -834,6 +839,10 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 63E8AC052A2998E000ED2064 /* XCRemoteSwiftPackageReference "SwiftTheme" */;
 			productName = SwiftTheme;
+		};
+		D53B6CAA2B24315E00B5F5F6 /* FreeToGame */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FreeToGame;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -32,3 +32,11 @@ struct SentenceDetails_Previews: PreviewProvider {
     )
   }
 }
+
+#Preview {
+  SentenceDetailsView(
+    store: Store(initialState: SentenceRow.State(id: UUID(), tagColor: Color.red, sentence: "sentence", time: Date())) {
+      SentenceRow()
+    }
+  )
+}
