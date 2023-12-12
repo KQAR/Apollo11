@@ -8,7 +8,7 @@
 import WidgetKit
 import SwiftUI
 import Intents
-import Neumorphic
+//import Neumorphic
 
 struct Provider: IntentTimelineProvider {
     func placeholder(in context: Context) -> SimpleEntry {
@@ -47,10 +47,10 @@ struct FancyEntryView : View {
     var body: some View {
       ZStack {
 //        Color.red
-        Circle()
-          .fill(Color.Neumorphic.main)
-          .frame(width: 120, height: 120)
-          .softInnerShadow(Circle())
+//        Circle()
+//          .fill(Color.Neumorphic.main)
+//          .frame(width: 120, height: 120)
+//          .softInnerShadow(Circle())
         Text(entry.date, style: .time)
       }
     }

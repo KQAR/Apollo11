@@ -8,7 +8,6 @@
 import SwiftUI
 import ComposableArchitecture
 
-
 public struct PopupView: View {
   
   @BindableStore var store: StoreOf<PopupReducer>
