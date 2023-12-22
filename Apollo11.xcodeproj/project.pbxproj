@@ -21,6 +21,7 @@
 		6349146329FBA30B0036E482 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6349146229FBA30B0036E482 /* Assets.xcassets */; };
 		6349146729FBA30B0036E482 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6349146629FBA30B0036E482 /* Preview Assets.xcassets */; };
 		636A68202A5BFE0B00F38251 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 636A681F2A5BFE0B00F38251 /* App */; };
+		63C3FD052B352F0C00581B11 /* Widget in Frameworks */ = {isa = PBXBuildFile; productRef = 63C3FD042B352F0C00581B11 /* Widget */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				630C119A2A9344C50007832B /* SwiftUI.framework in Frameworks */,
+				63C3FD052B352F0C00581B11 /* Widget in Frameworks */,
 				630C11982A9344C50007832B /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -166,6 +168,7 @@
 			);
 			name = FancyExtension;
 			packageProductDependencies = (
+				63C3FD042B352F0C00581B11 /* Widget */,
 			);
 			productName = FancyExtension;
 			productReference = 630C11962A9344C50007832B /* FancyExtension.appex */;
@@ -577,6 +580,10 @@
 		636A681F2A5BFE0B00F38251 /* App */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = App;
+		};
+		63C3FD042B352F0C00581B11 /* Widget */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Widget;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

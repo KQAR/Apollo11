@@ -19,6 +19,7 @@ let package = Package(
     .library(name: "Popup", targets: ["Popup"]),
     .library(name: "Profile", targets: ["Profile"]),
     .library(name: "ViewComponents", targets: ["ViewComponents"]),
+    .library(name: "Widget", targets: ["Widget"])
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
@@ -113,6 +114,12 @@ let package = Package(
       dependencies: [
         .TCA
       ]),
+    .target(
+      name: "Widget",
+      dependencies: [
+        .Neumorphic
+      ]
+    ),
     .testTarget(name: "AppTests", dependencies: ["App"]),
   ]
 )
