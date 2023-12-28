@@ -6,40 +6,42 @@
 //
 
 import SwiftUI
-import Colorful
 import Setting
+import ColorfulX
 
 public struct SettingView: View {
+
+  @State var colors: [Color] = ColorfulPreset.aurora.colors
+  
   public var body: some View {
     ZStack {
-      ColorfulView()
-      SettingStack {
-        SettingPage(title: "Setting") {
-          // Group 1
-          SettingGroup {
-            SettingText(title: "Hello!")
-          }
-          // Group 2
-          SettingGroup {
-            SettingPage(title: "First Page") {}
-              .previewIcon("star")
-            
-            SettingPage(title: "Second Page") {}
-              .previewIcon("sparkles")
-            
-            SettingPage(title: "Third Page") {}
-              .previewIcon("leaf.fill")
-          }
-        }
-      }
+      ColorfulView(color: $colors)
+        .ignoresSafeArea()
+//      SettingStack {
+//        SettingPage(title: "Setting") {
+//          // Group 1
+//          SettingGroup {
+//            SettingText(title: "Hello!")
+//          }
+//          // Group 2
+//          SettingGroup {
+//            SettingPage(title: "First Page") {}
+//              .previewIcon("star")
+//            
+//            SettingPage(title: "Second Page") {}
+//              .previewIcon("sparkles")
+//            
+//            SettingPage(title: "Third Page") {}
+//              .previewIcon("leaf.fill")
+//          }
+//        }
+//      }
     }
   }
   
   public init() {}
 }
 
-struct SettingView_Previews: PreviewProvider {
-  static var previews: some View {
-    SettingView()
-  }
+#Preview {
+  SettingView()
 }
