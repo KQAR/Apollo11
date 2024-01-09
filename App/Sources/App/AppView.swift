@@ -12,6 +12,7 @@ import Calendar
 import SentencePandect
 import ViewComponents
 import FreeToGame
+import Spline
 
 public struct AppView: View {
   
@@ -26,7 +27,8 @@ public struct AppView: View {
         case .calendar:
           FreeToGameView(store: store.scope(state: \.freeGames, action: \.freeGames))
         case .setting:
-          CalendarView()
+//          CalendarView()
+          SplineDemoView()
         }
       }
     }

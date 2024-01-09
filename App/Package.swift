@@ -19,6 +19,7 @@ let package = Package(
     .library(name: "Popup", targets: ["Popup"]),
     .library(name: "Profile", targets: ["Profile"]),
     .library(name: "ViewComponents", targets: ["ViewComponents"]),
+    .library(name: "Spline", targets: ["Spline"]),
     .library(name: "Widget", targets: ["Widget"])
   ],
   dependencies: [
@@ -31,7 +32,8 @@ let package = Package(
     .package(url: "https://github.com/Boris-Em/ColorKit.git", exact: "1.0.0"),
     .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", exact: "4.1.1"),
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", branch: "observation-beta"),
-    .package(url: "https://github.com/exyte/PopupView.git", exact: "2.8.3")
+    .package(url: "https://github.com/exyte/PopupView.git", exact: "2.8.3"),
+    .package(url: "https://github.com/splinetool/spline-ios.git", branch: "main")
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -45,7 +47,8 @@ let package = Package(
         .FreeToGame,
         .ViewComponents,
         .Profile,
-        .Calendar
+        .Calendar,
+        .Spline
       ]),
     .target(
       name: "SentencePandect",
@@ -115,6 +118,11 @@ let package = Package(
         .TCA
       ]),
     .target(
+      name: "Spline",
+      dependencies: [
+        .SplineRuntime
+      ]),
+    .target(
       name: "Widget",
       dependencies: [
         .Neumorphic
@@ -135,6 +143,7 @@ extension Target.Dependency {
   static let ViewComponents: Target.Dependency = "ViewComponents"
   static let Profile: Target.Dependency = "Profile"
   static let Calendar: Target.Dependency = "Calendar"
+  static let Spline: Target.Dependency = "Spline"
   static let Alamofire = Self.product(name: "Alamofire", package: "Alamofire")
   static let Kingfisher = Self.product(name: "Kingfisher", package: "Kingfisher")
   static let Setting = Self.product(name: "Setting", package: "Setting")
@@ -144,4 +153,5 @@ extension Target.Dependency {
   static let PopupView = Self.product(name: "PopupView", package: "PopupView")
   static let SFSafeSymbols = Self.product(name: "SFSafeSymbols", package: "SFSafeSymbols")
   static let TCA = Self.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
+  static let SplineRuntime = Self.product(name: "SplineRuntime", package: "spline-ios")
 }
