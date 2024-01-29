@@ -12,7 +12,7 @@ import Popup
 
 public struct SentencePandectView: View {
   
-  @BindableStore var store: StoreOf<SentencePandect>
+  @Perception.Bindable var store: StoreOf<SentencePandect>
   
   public var body: some View {
     WithPerceptionTracking {

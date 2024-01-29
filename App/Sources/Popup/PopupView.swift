@@ -10,7 +10,7 @@ import ComposableArchitecture
 
 public struct PopupView: View {
   
-  @BindableStore var store: StoreOf<PopupReducer>
+  @Perception.Bindable var store: StoreOf<PopupReducer>
   
   public var body: some View {
     WithPerceptionTracking {

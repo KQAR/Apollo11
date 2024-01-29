@@ -31,7 +31,7 @@ let package = Package(
     .package(url: "https://github.com/costachung/neumorphic.git", branch: "master"),
     .package(url: "https://github.com/Boris-Em/ColorKit.git", exact: "1.0.0"),
     .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", exact: "4.1.1"),
-    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", branch: "observation-beta"),
+    .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.7.0"),
     .package(url: "https://github.com/exyte/PopupView.git", exact: "2.8.3"),
     .package(url: "https://github.com/splinetool/spline-ios.git", branch: "main")
   ],

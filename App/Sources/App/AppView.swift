@@ -16,7 +16,7 @@ import Spline
 
 public struct AppView: View {
   
-  @BindableStore var store: StoreOf<AppReducer>
+  @Perception.Bindable var store: StoreOf<AppReducer>
   
   public var body: some View {
     ZStack {
