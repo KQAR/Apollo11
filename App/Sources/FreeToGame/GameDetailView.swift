@@ -13,11 +13,13 @@ struct GameDetailView: View {
   
   let store: StoreOf<GameRowReducer>
   
+  let animation: Namespace.ID
+  
   var body: some View {
     WithPerceptionTracking {
       ScrollView(.vertical, showsIndicators: false) {
         VStack {
-          GameRowView(store: store)
+          GameRowView(store: store, animation: animation)
           
           VStack(spacing: 15) {
             Divider()
@@ -49,6 +51,7 @@ struct GameDetailView: View {
         }
       }
       .ignoresSafeArea()
+      .background(.regularMaterial)
       .overlay(alignment: .topTrailing) {
         Button {
           // close
@@ -70,9 +73,13 @@ struct GameDetailView: View {
 }
 
 #Preview {
-  GameDetailView(
+  
+  @Namespace var namespace
+  
+  return GameDetailView(
     store: Store(initialState: GameRowReducer.State(id: UUID(), game: .mock)) {
       GameRowReducer()
-    }
+    },
+    animation: namespace
   )
 }

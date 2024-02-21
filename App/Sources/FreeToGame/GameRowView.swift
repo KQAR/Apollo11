@@ -13,7 +13,8 @@ struct GameRowView: View {
   
   let store: StoreOf<GameRowReducer>
   
-  @Namespace private var animation
+//  @Namespace private var animation
+  let animation: Namespace.ID
   
   var body: some View {
     WithPerceptionTracking {
@@ -84,15 +85,18 @@ struct GameRowView: View {
         .background(Color.cyan)
         .clipShape(.rect(bottomLeadingRadius: store.isAnimationView ? 0 : 20, bottomTrailingRadius: store.isAnimationView ? 0 : 20))
       }
-//      .matchedGeometryEffect(id: store.state.id, in: animation)
+      .matchedGeometryEffect(id: store.state.id, in: animation)
     }
   }
 }
 
 #Preview {
-  GameRowView(
+  @Namespace var namespace
+  
+  return GameRowView(
     store: Store(initialState: GameRowReducer.State(id: UUID(), game: .mock)) {
       GameRowReducer()
-    }
+    },
+    animation: namespace
   )
 }
