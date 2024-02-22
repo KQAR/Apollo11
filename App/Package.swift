@@ -24,7 +24,6 @@ let package = Package(
   ],
   dependencies: [
     // Dependencies declare other packages that this package depends on.
-    .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "7.10.0"),
     .package(url: "https://github.com/Alamofire/Alamofire.git", exact: "5.8.0"),
     .package(url: "https://github.com/aheze/Setting.git", exact: "1.0.1"),
     .package(url: "https://github.com/Lakr233/ColorfulX.git", exact: "2.2.4"),
@@ -85,7 +84,6 @@ let package = Package(
         .Debug,
         .SFSafeSymbols,
         .Extensions,
-        .Kingfisher
       ]),
     .target(
       name: "OCR", 
@@ -145,7 +143,6 @@ extension Target.Dependency {
   static let Calendar: Target.Dependency = "Calendar"
   static let Spline: Target.Dependency = "Spline"
   static let Alamofire = Self.product(name: "Alamofire", package: "Alamofire")
-  static let Kingfisher = Self.product(name: "Kingfisher", package: "Kingfisher")
   static let Setting = Self.product(name: "Setting", package: "Setting")
   static let ColorfulX = Self.product(name: "ColorfulX", package: "ColorfulX")
   static let Neumorphic = Self.product(name: "Neumorphic", package: "Neumorphic")

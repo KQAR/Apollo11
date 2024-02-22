@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
-import Kingfisher
 import ComposableArchitecture
 
 struct GameRowView: View {
   
   let store: StoreOf<GameRowReducer>
   
-//  @Namespace private var animation
   let animation: Namespace.ID
   
   var body: some View {
@@ -23,11 +21,15 @@ struct GameRowView: View {
           GeometryReader { proxy in
             let size = proxy.size
             
-            KFImage(URL(string: store.game.thumbnail))
-              .resizable()
-              .aspectRatio(contentMode: .fill)
-              .frame(width: size.width, height: size.height)
-              .clipped()
+            AsyncImage(url: URL(string: store.game.thumbnail)) { image in
+              image
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: size.width, height: size.height)
+                .clipped()
+            } placeholder: {
+              ProgressView()
+            }
             
             VStack(alignment: .leading, spacing: 4) {
               Spacer()
@@ -49,11 +51,15 @@ struct GameRowView: View {
         .clipShape(.rect(topLeadingRadius: 20, topTrailingRadius: 20))
         
         HStack() {
-          KFImage(URL(string: store.game.thumbnail))
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: 60, height: 60)
-            .clipShape(.rect(cornerRadius: 15))
+          AsyncImage(url: URL(string: store.game.thumbnail)) { image in
+            image
+              .resizable()
+              .aspectRatio(contentMode: .fill)
+              .frame(width: 60, height: 60)
+              .clipShape(.rect(cornerRadius: 15))
+          } placeholder: {
+            EmptyView()
+          }
           
           VStack(alignment: .leading, spacing: 4) {
             Text(store.game.platform)
