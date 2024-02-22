@@ -19,35 +19,8 @@ struct GameDetailView: View {
     WithPerceptionTracking {
       ScrollView(.vertical, showsIndicators: false) {
         VStack {
-          GameRowView(store: store, animation: animation)
-          
-          VStack(spacing: 15) {
-            Divider()
-            
-            Text(store.game.short_description)
-              .multilineTextAlignment(.leading)
-              .lineSpacing(10.0)
-              .padding(.bottom, 20)
-            
-            Spacer()
-            
-            Button {
-              
-            } label: {
-              Label {
-                Text("Share Game")
-              } icon: {
-                Image(systemSymbol: .squareAndArrowUpFill)
-              }
-              .foregroundColor(.primary)
-              .padding(.vertical, 5)
-              .padding(.horizontal, 25)
-              .background {
-                RoundedRectangle(cornerRadius: 5, style: .continuous)
-                  .fill(.ultraThinMaterial)
-              }
-            }
-          }
+          GameRowView(store: store, animation: animation, isSource: false)
+          content
         }
       }
       .ignoresSafeArea()
@@ -68,6 +41,36 @@ struct GameDetailView: View {
         store.send(.show, animation: .interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7))
       }
       .transition(.identity)
+    }
+  }
+  
+  var content: some View {
+    VStack(spacing: 15) {
+      Divider()
+      
+      Text(store.game.short_description)
+        .multilineTextAlignment(.leading)
+        .lineSpacing(10.0)
+        .padding(.bottom, 20)
+      
+      Spacer()
+      
+      Button {
+        
+      } label: {
+        Label {
+          Text("Share Game")
+        } icon: {
+          Image(systemSymbol: .squareAndArrowUpFill)
+        }
+        .foregroundColor(.primary)
+        .padding(.vertical, 5)
+        .padding(.horizontal, 25)
+        .background {
+          RoundedRectangle(cornerRadius: 5, style: .continuous)
+            .fill(.ultraThinMaterial)
+        }
+      }
     }
   }
 }

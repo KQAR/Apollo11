@@ -51,7 +51,7 @@ public struct FreeToGameView: View {
                   animation: .interactiveSpring(response: 0.6, dampingFraction: 1.0, blendDuration: 0.7)
                 )
               } label: {
-                GameRowView(store: rowStore, animation: animation)
+                GameRowView(store: rowStore, animation: animation, isSource: true)
                   .multilineTextAlignment(.leading)
                   .foregroundColor(.white)
                   .scaleEffect(store.currentShowItem?.id == rowStore.state.id ? 1 : 0.90)
