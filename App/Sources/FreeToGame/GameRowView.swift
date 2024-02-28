@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
+import Kingfisher
 import ComposableArchitecture
 
 struct GameRowView: View {
   
   let store: StoreOf<GameRowReducer>
-  
   let animation: Namespace.ID
-  
   let isSource: Bool
   
   var body: some View {
@@ -31,15 +30,11 @@ struct GameRowView: View {
       GeometryReader { proxy in
         let size = proxy.size
         
-        AsyncImage(url: URL(string: store.game.thumbnail)) { image in
-          image
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: size.width, height: size.height)
-            .clipped()
-        } placeholder: {
-          ProgressView()
-        }
+        KFImage(URL(string: store.game.thumbnail))
+          .resizable()
+          .aspectRatio(contentMode: .fill)
+          .frame(width: size.width, height: size.height)
+          .clipped()
         
         VStack(alignment: .leading, spacing: 4) {
           Spacer()
@@ -63,16 +58,12 @@ struct GameRowView: View {
   
   var content: some View {
     HStack() {
-      AsyncImage(url: URL(string: store.game.thumbnail)) { image in
-        image
-          .resizable()
-          .aspectRatio(contentMode: .fill)
-          .frame(width: 60, height: 60)
-          .clipShape(.rect(cornerRadius: 15))
-      } placeholder: {
-        EmptyView()
-      }
-      
+      KFImage(URL(string: store.game.thumbnail))
+        .resizable()
+        .aspectRatio(contentMode: .fill)
+        .frame(width: 60, height: 60)
+        .clipShape(.rect(cornerRadius: 15))
+   
       VStack(alignment: .leading, spacing: 4) {
         Text(store.game.platform)
           .font(.caption.bold())
