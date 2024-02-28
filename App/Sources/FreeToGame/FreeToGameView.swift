@@ -61,6 +61,9 @@ public struct FreeToGameView: View {
             }
           }
         }
+        .refreshable {
+          store.send(.onAppear)
+        }
         .onAppear {
           store.send(.onAppear)
         }
