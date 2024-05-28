@@ -99,12 +99,12 @@
 				630C119C2A9344C50007832B /* FancyBundle.swift */,
 				630C119E2A9344C50007832B /* FancyLiveActivity.swift */,
 				630C11A02A9344C50007832B /* Fancy.swift */,
-				630C11A22A9344C60007832B /* Fancy.intentdefinition */,
-				630C11A32A9344C70007832B /* Assets.xcassets */,
-				630C11A52A9344C70007832B /* Info.plist */,
 				632E39CC2AEF996D003304B2 /* Clock.swift */,
 				63D0ED812C05CA490083C7F2 /* Network.swift */,
 				63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */,
+				630C11A22A9344C60007832B /* Fancy.intentdefinition */,
+				630C11A32A9344C70007832B /* Assets.xcassets */,
+				630C11A52A9344C70007832B /* Info.plist */,
 			);
 			path = Fancy;
 			sourceTree = "<group>";
