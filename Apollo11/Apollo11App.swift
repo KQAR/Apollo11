@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import WidgetKit
 import App
 import Debug
 import ComposableArchitecture
@@ -13,21 +14,27 @@ import ComposableArchitecture
 @main
 struct Apollo11App: App {
   
-  @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
-  
+  @Environment(\.scenePhase) private var scenePhase
+
   var body: some Scene {
     WindowGroup {
       AppView(
         store: Store(initialState: .init()) {
           AppReducer()
         }
-      )
+      ).onChange(of: scenePhase) { phase in
+        switch phase {
+        case .background:
+          printLog("应用程序进入后台", tags: DebugTag(rawValue: "📱"))
+          WidgetCenter.shared.reloadAllTimelines()
+        case .inactive:
+          printLog("应用程序闲置", tags: DebugTag(rawValue: "📱"))
+        case .active:
+          printLog("应用程序激活", tags: DebugTag(rawValue: "📱"))
+        @unknown default:
+          break
+        }
+      }
     }
-  }
-}
-
-class AppDelegate: NSObject, UIApplicationDelegate, ObservableObject {
-  func applicationDidBecomeActive(_ application: UIApplication) {
-    printLog("应用程序进入前台")
   }
 }

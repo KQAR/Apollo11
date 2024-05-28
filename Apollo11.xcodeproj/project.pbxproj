@@ -22,6 +22,8 @@
 		6349146729FBA30B0036E482 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6349146629FBA30B0036E482 /* Preview Assets.xcassets */; };
 		636A68202A5BFE0B00F38251 /* App in Frameworks */ = {isa = PBXBuildFile; productRef = 636A681F2A5BFE0B00F38251 /* App */; };
 		63C3FD052B352F0C00581B11 /* Widget in Frameworks */ = {isa = PBXBuildFile; productRef = 63C3FD042B352F0C00581B11 /* Widget */; };
+		63D0ED822C05CA490083C7F2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0ED812C05CA490083C7F2 /* Network.swift */; };
+		63D0ED842C05CAFC0083C7F2 /* QuoteResItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +67,8 @@
 		6349146429FBA30B0036E482 /* Apollo11.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Apollo11.entitlements; sourceTree = "<group>"; };
 		6349146629FBA30B0036E482 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		636A681E2A5BFC2100F38251 /* App */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = App; sourceTree = "<group>"; };
+		63D0ED812C05CA490083C7F2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteResItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,8 @@
 				630C11A32A9344C70007832B /* Assets.xcassets */,
 				630C11A52A9344C70007832B /* Info.plist */,
 				632E39CC2AEF996D003304B2 /* Clock.swift */,
+				63D0ED812C05CA490083C7F2 /* Network.swift */,
+				63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */,
 			);
 			path = Fancy;
 			sourceTree = "<group>";
@@ -265,6 +271,8 @@
 				630C119F2A9344C50007832B /* FancyLiveActivity.swift in Sources */,
 				630C119D2A9344C50007832B /* FancyBundle.swift in Sources */,
 				632E39CD2AEF996D003304B2 /* Clock.swift in Sources */,
+				63D0ED842C05CAFC0083C7F2 /* QuoteResItem.swift in Sources */,
+				63D0ED822C05CA490083C7F2 /* Network.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
