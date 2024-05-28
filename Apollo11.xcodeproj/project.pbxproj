@@ -69,6 +69,7 @@
 		636A681E2A5BFC2100F38251 /* App */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = App; sourceTree = "<group>"; };
 		63D0ED812C05CA490083C7F2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteResItem.swift; sourceTree = "<group>"; };
+		63D0ED872C05EC970083C7F2 /* FancyExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FancyExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +105,7 @@
 				63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */,
 				630C11A22A9344C60007832B /* Fancy.intentdefinition */,
 				630C11A32A9344C70007832B /* Assets.xcassets */,
+				63D0ED872C05EC970083C7F2 /* FancyExtension.entitlements */,
 				630C11A52A9344C70007832B /* Info.plist */,
 			);
 			path = Fancy;
@@ -301,6 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Fancy/FancyExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 78X6FL4YJY;
@@ -330,6 +333,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/Fancy/FancyExtension.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 78X6FL4YJY;
