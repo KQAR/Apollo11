@@ -16,13 +16,11 @@ struct GameRowView: View {
   let isSource: Bool
   
   var body: some View {
-    WithPerceptionTracking {
-      VStack(alignment: .leading, spacing: 0) {
-        header
-        content
-      }
-      .matchedGeometryEffect(id: store.state.id, in: animation, isSource: isSource)
+    VStack(alignment: .leading, spacing: 0) {
+      header
+      content
     }
+    .matchedGeometryEffect(id: store.state.id, in: animation, isSource: isSource)
   }
   
   var header: some View {

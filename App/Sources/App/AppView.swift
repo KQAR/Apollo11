@@ -16,20 +16,18 @@ import Spline
 
 public struct AppView: View {
   
-  @Perception.Bindable var store: StoreOf<AppReducer>
+  @Bindable var store: StoreOf<AppReducer>
   
   public var body: some View {
     ZStack {
-      WithPerceptionTracking {
-        switch store.tab {
-        case .home:
-          SentencePandectView(store: store.scope(state: \.home, action: \.home))
-        case .calendar:
-          FreeToGameView(store: store.scope(state: \.freeGames, action: \.freeGames))
-        case .setting:
-//          CalendarView()
-          SplineDemoView()
-        }
+      switch store.tab {
+      case .home:
+        SentencePandectView(store: store.scope(state: \.home, action: \.home))
+      case .calendar:
+        FreeToGameView(store: store.scope(state: \.freeGames, action: \.freeGames))
+      case .setting:
+        //          CalendarView()
+        SplineDemoView()
       }
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)

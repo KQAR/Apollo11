@@ -18,61 +18,59 @@ public struct FreeToGameView: View {
   private let columns = [GridItem(.adaptive(minimum: 300), spacing: 20)]
   
   public var body: some View {
-    WithPerceptionTracking {
-      ZStack {
-        ScrollView(.vertical, showsIndicators: false) {
-          
-          HStack(alignment: .center) {
-            VStack(alignment: .leading, spacing: 8) {
-              Text("Today")
-                .font(.title.bold())
-              
-              Text("22 November")
-                .font(.callout.bold())
-                .opacity(0.8)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            
-            Image(systemSymbol: SFSymbol.homekit)
-              .resizable()
-              .scaledToFill()
-              .frame(width: 40, height: 40)
-              .clipShape(Circle())
-              .padding(.vertical)
+    ZStack {
+      ScrollView(.vertical, showsIndicators: false) {
+
+        HStack(alignment: .center) {
+          VStack(alignment: .leading, spacing: 8) {
+            Text("Today")
+              .font(.title.bold())
+
+            Text("22 November")
+              .font(.callout.bold())
+              .opacity(0.8)
           }
-          .padding(.horizontal)
-          .opacity(store.currentShowItem == nil ? 1 : 0)
-          
-          LazyVGrid(columns: columns, spacing: 20) {
-            ForEach(store.scope(state: \.games, action: \.row)) { rowStore in
-              Button {
-                store.send(
-                  .selected(rowStore.state),
-                  animation: .interactiveSpring(response: 0.6, dampingFraction: 1.0, blendDuration: 0.7)
-                )
-              } label: {
-                GameRowView(store: rowStore, animation: animation, isSource: true)
-                  .multilineTextAlignment(.leading)
-                  .foregroundColor(.white)
-                  .scaleEffect(store.currentShowItem?.id == rowStore.state.id ? 1 : 0.90)
-              }
-              .buttonStyle(ScaleButtonStyle())
-              .opacity(store.currentShowItem?.id == rowStore.state.id ? 0 : 1)
+          .frame(maxWidth: .infinity, alignment: .leading)
+
+          Image(systemSymbol: SFSymbol.homekit)
+            .resizable()
+            .scaledToFill()
+            .frame(width: 40, height: 40)
+            .clipShape(Circle())
+            .padding(.vertical)
+        }
+        .padding(.horizontal)
+        .opacity(store.currentShowItem == nil ? 1 : 0)
+
+        LazyVGrid(columns: columns, spacing: 20) {
+          ForEach(store.scope(state: \.games, action: \.row)) { rowStore in
+            Button {
+              store.send(
+                .selected(rowStore.state),
+                animation: .interactiveSpring(response: 0.6, dampingFraction: 1.0, blendDuration: 0.7)
+              )
+            } label: {
+              GameRowView(store: rowStore, animation: animation, isSource: true)
+                .multilineTextAlignment(.leading)
+                .foregroundColor(.white)
+                .scaleEffect(store.currentShowItem?.id == rowStore.state.id ? 1 : 0.90)
             }
+            .buttonStyle(ScaleButtonStyle())
+            .opacity(store.currentShowItem?.id == rowStore.state.id ? 0 : 1)
           }
         }
-        .refreshable {
-          store.send(.onAppear)
-        }
-        .onAppear {
-          store.send(.onAppear)
-        }
       }
-      
-      if let showPageStore = store.scope(state: \.currentShowItem, action: \.showPageAction) {
-        GameDetailView(store: showPageStore, animation: animation)
-          .edgesIgnoringSafeArea(.top)
+      .refreshable {
+        store.send(.onAppear)
       }
+      .onAppear {
+        store.send(.onAppear)
+      }
+    }
+
+    if let showPageStore = store.scope(state: \.currentShowItem, action: \.showPageAction) {
+      GameDetailView(store: showPageStore, animation: animation)
+        .edgesIgnoringSafeArea(.top)
     }
   }
   

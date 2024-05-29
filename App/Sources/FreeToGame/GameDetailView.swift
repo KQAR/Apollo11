@@ -12,38 +12,36 @@ import Extensions
 struct GameDetailView: View {
   
   let store: StoreOf<GameRowReducer>
-  
+
   let animation: Namespace.ID
-  
+
   var body: some View {
-    WithPerceptionTracking {
-      ScrollView(.vertical, showsIndicators: false) {
-        VStack {
-          GameRowView(store: store, animation: animation, isSource: false)
-          content
-        }
+    ScrollView(.vertical, showsIndicators: false) {
+      VStack {
+        GameRowView(store: store, animation: animation, isSource: false)
+        content
       }
-      .ignoresSafeArea()
-      .background(.regularMaterial)
-      .overlay(alignment: .topTrailing) {
-        Button {
-          // close
-          store.send(.close, animation: .interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7))
-        } label: {
-          Image(systemSymbol: .xmarkCircleFill)
-            .font(.title)
-            .foregroundColor(.white)
-        }
-        .padding([.top], safeArea().top)
-        .padding(.trailing)
-      }
-      .onAppear() {
-        store.send(.show, animation: .interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7))
-      }
-      .transition(.identity)
     }
+    .ignoresSafeArea()
+    .background(.regularMaterial)
+    .overlay(alignment: .topTrailing) {
+      Button {
+        // close
+        store.send(.close, animation: .interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7))
+      } label: {
+        Image(systemSymbol: .xmarkCircleFill)
+          .font(.title)
+          .foregroundColor(.white)
+      }
+      .padding([.top], safeArea().top)
+      .padding(.trailing)
+    }
+    .onAppear() {
+      store.send(.show, animation: .interactiveSpring(response: 0.6, dampingFraction: 0.7, blendDuration: 0.7))
+    }
+    .transition(.identity)
   }
-  
+
   var content: some View {
     VStack(spacing: 15) {
       Divider()

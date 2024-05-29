@@ -13,25 +13,23 @@ struct SentenceRowView: View {
   let store: StoreOf<SentenceRow>
   
   var body: some View {
-    WithPerceptionTracking {
-      HStack {
-        RoundedRectangle(cornerRadius: 16)
-          .fill(store.tagColor)
-          .frame(width: 5, height: 30)
-        
-        VStack(alignment: .leading) {
-          Text(store.sentence)
-            .font(.system(size: 16))
-            .lineLimit(1)
-          Text(store.timeString)
-            .font(.system(size: 10))
-            .lineLimit(1)
-        }
-        Spacer()
+    HStack {
+      RoundedRectangle(cornerRadius: 16)
+        .fill(store.tagColor)
+        .frame(width: 5, height: 30)
+
+      VStack(alignment: .leading) {
+        Text(store.sentence)
+          .font(.system(size: 16))
+          .lineLimit(1)
+        Text(store.timeString)
+          .font(.system(size: 10))
+          .lineLimit(1)
       }
-      .frame(height: 30)
-      .padding(.vertical, 5)
+      Spacer()
     }
+    .frame(height: 30)
+    .padding(.vertical, 5)
   }
 }
 
