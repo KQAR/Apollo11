@@ -5,7 +5,7 @@ import PackageDescription
 
 let package = Package(
   name: "Apollo11",
-  platforms: [.iOS(.v17)],
+  platforms: [.iOS(.v17), .macOS(.v14)],
   products: [
     // Products define the executables and libraries a package produces, and make them visible to other packages.
     .library(name: "App", targets: ["App"]),
@@ -33,7 +33,6 @@ let package = Package(
     .package(url: "https://github.com/SFSafeSymbols/SFSafeSymbols.git", exact: "4.1.1"),
     .package(url: "https://github.com/pointfreeco/swift-composable-architecture.git", exact: "1.10.4"),
     .package(url: "https://github.com/exyte/PopupView.git", exact: "2.8.3"),
-    .package(url: "https://github.com/splinetool/spline-ios.git", branch: "main")
   ],
   targets: [
     // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -120,7 +119,6 @@ let package = Package(
     .target(
       name: "Spline",
       dependencies: [
-        .SplineRuntime
       ]),
     .target(
       name: "Widget",
@@ -153,5 +151,4 @@ extension Target.Dependency {
   static let PopupView = Self.product(name: "PopupView", package: "PopupView")
   static let SFSafeSymbols = Self.product(name: "SFSafeSymbols", package: "SFSafeSymbols")
   static let TCA = Self.product(name: "ComposableArchitecture", package: "swift-composable-architecture")
-  static let SplineRuntime = Self.product(name: "SplineRuntime", package: "spline-ios")
 }

@@ -12,11 +12,11 @@ import WidgetKit
 
 struct Provider: IntentTimelineProvider {
   func placeholder(in context: Context) -> SimpleEntry {
-    SimpleEntry(date: Date(), configuration: ConfigurationIntent(), quoteShareItem: QuoteResItem(hitokoto: ""))
+    SimpleEntry(date: Date(), configuration: ConfigurationIntent(), quoteShareItem: QuoteResItem(hitokoto: ""), splineName: "")
   }
 
   func getSnapshot(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (SimpleEntry) -> ()) {
-    let entry = SimpleEntry(date: Date(), configuration: configuration, quoteShareItem: QuoteResItem(hitokoto: ""))
+    let entry = SimpleEntry(date: Date(), configuration: configuration, quoteShareItem: QuoteResItem(hitokoto: ""), splineName: "")
     completion(entry)
   }
 
@@ -37,7 +37,8 @@ struct Provider: IntentTimelineProvider {
     QuoteService.getQuote(client: NetworkClient()) { quoteResItem in
 //      let quoteShareItem = SyncWidgetQuoteShareItem()
 //      quoteShareItem.updateQuoteItem(quoteResItem)
-      let entry = SimpleEntry(date: Date(), configuration: configuration, quoteShareItem: quoteResItem)
+      let splineName = UserDefaults(suiteName: "group.78X6FL4YJY.com.person.apollo11.mygroup")?.string(forKey: "splineName")
+      let entry = SimpleEntry(date: Date(), configuration: configuration, quoteShareItem: quoteResItem, splineName: splineName ?? "")
       // refresh the data every two hours
       let expireDate = Calendar.current.date(byAdding: .hour, value: 1, to: Date()) ?? Date()
       let timeline = Timeline(entries: [entry], policy: .after(expireDate))
@@ -50,11 +51,11 @@ struct SimpleEntry: TimelineEntry {
   let date: Date
   let configuration: ConfigurationIntent
   var quoteShareItem: QuoteResItem
+  var splineName: String
 }
 
 struct FancyEntryView: View {
   var entry: Provider.Entry
-//  @ObservedObject var quoteShareItem: SyncWidgetQuoteShareItem
 
   var body: some View {
     ZStack {
@@ -66,6 +67,7 @@ struct FancyEntryView: View {
       VStack {
         Text(entry.date, style: .time)
         Text(entry.quoteShareItem.hitokoto)
+        Text(entry.splineName)
       }
     }
   }
@@ -89,7 +91,8 @@ struct Fancy_Previews: PreviewProvider {
       entry: SimpleEntry(
         date: Date(),
         configuration: ConfigurationIntent(),
-        quoteShareItem: QuoteResItem(hitokoto: "")
+        quoteShareItem: QuoteResItem(hitokoto: ""),
+        splineName: ""
       )
     )
     .previewContext(WidgetPreviewContext(family: .systemSmall))

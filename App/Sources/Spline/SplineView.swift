@@ -6,17 +6,17 @@
 //
 
 import SwiftUI
-import SplineRuntime
 
 public struct SplineDemoView: View {
+
+  @AppStorage("splineName", store: UserDefaults(suiteName: "group.78X6FL4YJY.com.person.apollo11.mygroup"))
+  var splineName: String = "scene spline"
+
   public var body: some View {
-    // fetching from cloud
-    let url = URL(string: "https://build.spline.design/bggWOjtMNDH0lk5WECYc/scene.splineswift")!
-
-    // // fetching from local
-    // let url = Bundle.main.url(forResource: "scene", withExtension: "splineswift")!
-
-    try? SplineView(sceneFileURL: url).ignoresSafeArea(.all)
+    VStack {
+      Text(splineName)
+      TextField("输入 Spline Name", text: $splineName)
+    }
   }
 
   public init() {}
