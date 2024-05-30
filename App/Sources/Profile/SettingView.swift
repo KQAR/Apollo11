@@ -11,7 +11,7 @@ import ColorfulX
 
 public struct SettingView: View {
 
-  @State var colors: [Color] = ColorfulPreset.aurora.colors
+  @State private var colors: [Color] = ColorfulPreset.aurora.colors
   
   public var body: some View {
     ZStack {
