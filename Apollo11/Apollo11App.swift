@@ -22,8 +22,8 @@ struct Apollo11App: App {
         store: Store(initialState: .init()) {
           AppReducer()
         }
-      ).onChange(of: scenePhase) { phase in
-        switch phase {
+      ).onChange(of: scenePhase) { olaPhase, newPhase in
+        switch newPhase {
         case .background:
           printLog("应用程序进入后台", tags: DebugTag(rawValue: "📱"))
           WidgetCenter.shared.reloadAllTimelines()
