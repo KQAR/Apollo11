@@ -116,7 +116,7 @@ struct GradientEffectView: View {
       .onReceive(timer) { _ in
         update()
       }
-      .onChange(of: model.isFirstGradientVisible) { _ in
+      .onChange(of: model.isFirstGradientVisible) { _, _ in
         update()
       }
     }
