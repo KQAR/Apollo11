@@ -74,7 +74,6 @@ struct GameDetailView: View {
 }
 
 #Preview {
-  
   @Namespace var namespace
   
   return GameDetailView(

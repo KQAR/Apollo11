@@ -13,6 +13,7 @@ import SentencePandect
 import ViewComponents
 import FreeToGame
 import Spline
+import MyBooks
 
 public struct AppView: View {
   
@@ -26,8 +27,10 @@ public struct AppView: View {
       case .calendar:
         FreeToGameView(store: store.scope(state: \.freeGames, action: \.freeGames))
       case .setting:
-        //          CalendarView()
-        SplineDemoView()
+//        CalendarView()
+//        SplineDemoView()
+        BookListView()
+          .modelContainer(for: Book.self, inMemory: true)
       }
     }
     .frame(maxWidth: .infinity, maxHeight: .infinity)

@@ -20,6 +20,7 @@ let package = Package(
     .library(name: "Profile", targets: ["Profile"]),
     .library(name: "ViewComponents", targets: ["ViewComponents"]),
     .library(name: "Spline", targets: ["Spline"]),
+    .library(name: "MyBooks", targets: ["MyBooks"]),
     .library(name: "Widget", targets: ["Widget"])
   ],
   dependencies: [
@@ -47,7 +48,8 @@ let package = Package(
         .ViewComponents,
         .Profile,
         .Calendar,
-        .Spline
+        .Spline,
+        .MyBooks
       ]),
     .target(
       name: "SentencePandect",
@@ -121,6 +123,10 @@ let package = Package(
       dependencies: [
       ]),
     .target(
+      name: "MyBooks",
+      resources: [.process("Resources/")]
+    ),
+    .target(
       name: "Widget",
       dependencies: [
         .Neumorphic
@@ -142,6 +148,7 @@ extension Target.Dependency {
   static let Profile: Target.Dependency = "Profile"
   static let Calendar: Target.Dependency = "Calendar"
   static let Spline: Target.Dependency = "Spline"
+  static let MyBooks: Target.Dependency = "MyBooks"
   static let Alamofire = Self.product(name: "Alamofire", package: "Alamofire")
   static let Kingfisher = Self.product(name: "Kingfisher", package: "Kingfisher")
   static let Setting = Self.product(name: "Setting", package: "Setting")

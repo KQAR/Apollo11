@@ -24,6 +24,7 @@
 		63C3FD052B352F0C00581B11 /* Widget in Frameworks */ = {isa = PBXBuildFile; productRef = 63C3FD042B352F0C00581B11 /* Widget */; };
 		63D0ED822C05CA490083C7F2 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0ED812C05CA490083C7F2 /* Network.swift */; };
 		63D0ED842C05CAFC0083C7F2 /* QuoteResItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */; };
+		D5DEB19F2C3D9A5400D114C6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = D5DEB19E2C3D9A5400D114C6 /* Localizable.xcstrings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		63D0ED812C05CA490083C7F2 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		63D0ED832C05CAFC0083C7F2 /* QuoteResItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteResItem.swift; sourceTree = "<group>"; };
 		63D0ED872C05EC970083C7F2 /* FancyExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FancyExtension.entitlements; sourceTree = "<group>"; };
+		D5DEB19E2C3D9A5400D114C6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 				6349146229FBA30B0036E482 /* Assets.xcassets */,
 				6349146429FBA30B0036E482 /* Apollo11.entitlements */,
 				6349146529FBA30B0036E482 /* Preview Content */,
+				D5DEB19E2C3D9A5400D114C6 /* Localizable.xcstrings */,
 			);
 			path = Apollo11;
 			sourceTree = "<group>";
@@ -212,7 +215,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					630C11952A9344C50007832B = {
 						CreatedOnToolsVersion = 14.2;
@@ -229,6 +232,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 6349145229FBA30A0036E482;
 			packageReferences = (
@@ -258,6 +262,7 @@
 			files = (
 				6349146729FBA30B0036E482 /* Preview Assets.xcassets in Resources */,
 				6349146329FBA30B0036E482 /* Assets.xcassets in Resources */,
+				D5DEB19F2C3D9A5400D114C6 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -364,6 +369,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -412,10 +418,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -425,6 +433,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -467,9 +476,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 			};
 			name = Release;
@@ -477,7 +488,6 @@
 		6349146B29FBA30B0036E482 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Apollo11/Apollo11.entitlements;
@@ -519,7 +529,6 @@
 		6349146C29FBA30B0036E482 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Apollo11/Apollo11.entitlements;
